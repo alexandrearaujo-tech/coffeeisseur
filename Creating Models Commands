@@ -1,0 +1,40 @@
+Creating Models:
+
+// Place
+rails g model Place name:string street:string city:string photo:string average_rating:decimal
+
+// Card
+rails g model Card stamps:integer completed:integer place:references user:references
+
+// Category (experiences)
+rails g model Category name:string
+
+// Experience
+rails g model Experience name:string description:text photo:string average_rating:decimal qr_code:string category:references place:references
+
+// Booking
+rails g model Booking date:date state:integer user:references experience:references
+
+// Compliment
+rails g model Compliment name:string
+
+// Review
+rails g model Review content:text rating:integer booking:references compliment:references
+
+// User_Experience
+rails g model UserExperience user:references experience:references
+
+// User_Place
+rails g model UserPlace user:references place:references
+
+// Interest
+rails g model Interest name:string
+
+// User_Interest
+rails g model UserInterest user:references interest:references
+
+
+
+Migrations:
+
+rails g migration AddColumnsToUsers first_name:string last_name:string photo:string
