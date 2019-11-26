@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Coffeeisseur</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,8 +12,6 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <button type="button" class="btn btn-success">Success</button>
-
     <%= yield %>
     <%= render 'shared/bottom_navigation' %>
     <p class="notice"><%= notice %></p>
