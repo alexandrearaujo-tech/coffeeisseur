@@ -3,10 +3,9 @@
 
 <div class="scrolling-wrapper-flexbox mt-2 py-3">
   <% @categories.each do |category| %>
-    <div class="container">
-      <div class="card-avatar"><i class="fas fa-chalkboard-teacher"></i></div>
-      <figcaption class="figure-caption text-center text-nowrap"><%= category.name %></figcaption>
-    </div>
+  <div class="container">
+    <div class="card-avatar"><i class="<%= category.icon %>"></i></div>
+    <figcaption class="figure-caption text-center text-nowrap"><%= category.name %></figcaption>
+  </div>
   <% end %>
 </div>
-

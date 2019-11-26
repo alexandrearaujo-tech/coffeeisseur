@@ -34,11 +34,14 @@ end
   Place.create!(name: "Lee's Cafe", street: "Rua Filinto Elisio 21", city: "Lisbon", photo: "", average_rating: "")
   Place.create!(name: "Costa de Cafe", street: "Avenida da Liberdade 13", city: "Lisbon", photo: "", average_rating: "")
 
-Category.create!(name: "Workshops")
-Category.create!(name: "Competitions")
-Category.create!(name: "Cupping")
-Category.create!(name: "New Beans")
-Category.create!(name: "Coffee Talks")
-Category.create!(name: "Festivals")
+
+# Creating Categories
+
+Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
+Category.create!(name: "Competitions", icon: "fas fa-award")
+Category.create!(name: "Cupping", icon: "fas fa-mug-hot")
+Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
+Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
+Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
 
 puts 'Done :)'
