@@ -1,4 +1,36 @@
 <%= image_tag ("hero_homepage.jpeg"), class: "img-fluid" %>
-<h1><%= @place.name %></h1>
-<p><%= @place.city %> <%= @place.street %></p>
+<div class="mr-3">
+  <h1><%= @place.name %></h1>
+  <p><%= @place.street %>, <%= @place.city %></p>
+  <h3>Experiences</h3>
+  <ul class="list-unstyled">
+  <% @Experiences.each do |experience| %>
+  <li class="media">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><%= experience.name %></h5>
+      <%= experience.description %>
+      <br><br>
+    </div>
+  </li>
+  <% end %>
+  </ul>
 
+
+  <h3>Reviews</h3>
+  <ul class="list-unstyled">
+    <% @place.reviews.each do |review| %>
+    <li class="media">
+      <div class="media-body">
+        <h5 class="mt-0 mb-1">
+          Rating: <%= review.rating.times do %>
+          *
+          <% end %>
+        </h5>
+        <%= review.content %>
+        <br><br>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<p></p>
