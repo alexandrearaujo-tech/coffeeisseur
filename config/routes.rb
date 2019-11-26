@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'places/show'
   devise_for :users
   root to: 'pages#home'
 
@@ -10,5 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :bookings
+
+  resources :categories, only: [:index]
 
 end

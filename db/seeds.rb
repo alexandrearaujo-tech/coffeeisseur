@@ -22,7 +22,7 @@ Category.destroy_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
     password: '123456')
-  end
+end
 
 #create Categories
 
@@ -74,5 +74,15 @@ place10 = Place.create!(name: "Costa de Cafe", street: "Avenida da Liberdade 13"
   Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"mystery"), place: place10)
 
 
+
+
+# Creating Categories
+
+Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
+Category.create!(name: "Competitions", icon: "fas fa-award")
+Category.create!(name: "Cupping", icon: "fas fa-mug-hot")
+Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
+Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
+Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
 
 puts 'Done :)'
