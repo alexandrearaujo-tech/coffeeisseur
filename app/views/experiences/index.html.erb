@@ -1,11 +1,17 @@
-<h2>Experiences</h2>
-
-
 <div class="scrolling-wrapper-flexbox mt-2 py-3">
-  <% @categories.each do |category| %>
-  <div class="container">
-    <div class="card-avatar"><i class="<%= category.icon %>"></i></div>
-    <figcaption class="figure-caption text-center text-nowrap"><%= category.name %></figcaption>
-  </div>
+    <% @categories.each do |category| %>
+
+      <%= link_to experiences_path(category_id: category.id), remote: true do %>
+        <div class="container text-center">
+          <div class="card-avatar"><i class="<%= category.icon %>"></i></div>
+          <figcaption class="figure-caption text-center text-nowrap mt-1"><%= category.name %></figcaption>
+        </div>
+      <% end %>
+
   <% end %>
 </div>
+
+<div class="container mb-5 mt-3">
+  <%= render partial: 'experience_list', locals: { experiences: @experiences} %>
+</div>
+
