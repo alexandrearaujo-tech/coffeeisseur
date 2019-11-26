@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'experiences/indexshow'
-  get 'categories/index'
   devise_for :users
   root to: 'pages#home'
 
