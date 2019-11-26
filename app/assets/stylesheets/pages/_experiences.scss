@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .scrolling-wrapper-flexbox {
   display: flex;
   flex-wrap: nowrap;
@@ -14,13 +21,19 @@
     flex: 0 0 auto;
     cursor: pointer;
     background-color: $white;
+    color: $black;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    margin: 0px 10px;
+    margin: 0px 5px;
     font-size: 25px;
 
      &:hover {
       background-color: $mydarkgreen;
       color: $white;
+      text-decoration: none;
      }
+  }
+
+  .figure-caption {
+   font-size: 12px;
   }
 }

@@ -2,9 +2,6 @@ import "bootstrap";
 
 
 
-
-
-
  const imgBtn = document.querySelector('.img__btn')
 
  if(imgBtn !== null) {
@@ -13,4 +10,5 @@ import "bootstrap";
      document.querySelector('.cont').classList.toggle('s--signup');
    });
 };
+
 

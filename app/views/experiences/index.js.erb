@@ -1,0 +1,22 @@
+
+function refreshList() {
+  const newExperienceList = document.getElementById('experience_list');
+  newExperienceList.innerHTML = '';
+}
+
+function displayFilteredList(experienceHTML) {
+  const experiencesList = document.getElementById('experience_list');
+  experiencesList.insertAdjacentHTML('beforeend', experienceHTML);
+}
+
+refreshList();
+displayFilteredList('<%= j render "experience_list", experiences: @experiences %>');
+
+
+
+
+
+
+
+
+
