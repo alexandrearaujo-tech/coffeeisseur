@@ -12,6 +12,7 @@ puts 'Creating Users, Places, Experiences...'
 
 User.destroy_all
 Place.destroy_all
+Category.destroy_all
 
 
 5.times do
@@ -20,7 +21,7 @@ Place.destroy_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
     password: '123456')
-  end
+end
 
   Place.create!(name: "Benjamin Coffee House", street: "Rua do Possolo 52", city: "Lisbon", photo: "", average_rating: "")
   Place.create!(name: "COMOBA", street: "Rua de S. Paulo 99", city: "Lisbon", photo: "", average_rating: "")
@@ -32,5 +33,12 @@ Place.destroy_all
   Place.create!(name: "Cafe Enamorado", street: "Escolas Gerais 34", city: "Lisbon", photo: "", average_rating: "")
   Place.create!(name: "Lee's Cafe", street: "Rua Filinto Elisio 21", city: "Lisbon", photo: "", average_rating: "")
   Place.create!(name: "Costa de Cafe", street: "Avenida da Liberdade 13", city: "Lisbon", photo: "", average_rating: "")
+
+Category.create!(name: "Workshops")
+Category.create!(name: "Competitions")
+Category.create!(name: "Cupping")
+Category.create!(name: "New Beans")
+Category.create!(name: "Coffee Talks")
+Category.create!(name: "Festivals")
 
 puts 'Done :)'
