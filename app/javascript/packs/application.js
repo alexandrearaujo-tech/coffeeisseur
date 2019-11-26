@@ -1,15 +1,14 @@
 import "bootstrap";
-import $ from 'jquery'
 
 
 
-// Experience slider
+ const imgBtn = document.querySelector('.img__btn')
 
-// $('#experience_list').ready(function() {
-//    $("#carouselExperience").swiperight(function() {
-//       $(this).carousel('prev');
-//     });
-//    $("#carouselExperience").swipeleft(function() {
-//       $(this).carousel('next');
-//    });
-// });
+ if(imgBtn !== null) {
+   imgBtn.addEventListener("click", (event) => {
+     console.log(event.currentTarget);
+     document.querySelector('.cont').classList.toggle('s--signup');
+   });
+};
+
+
