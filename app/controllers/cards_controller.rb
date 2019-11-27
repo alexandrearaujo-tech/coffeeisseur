@@ -1,10 +1,9 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show]
-  # skip_before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @cards = Card.where(user_id: @user.id)
+    @cards = policy_scope(Card).where(user_id: current_user.id)
+    @places = policy_scope(Place)
   end
 
   def new
