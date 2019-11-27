@@ -1,8 +1,7 @@
 <!--Modal: Login / Register Form-->
 
         <div class="text-center">
-          <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">
-            LogIn/Register</a>
+              <h1>Welcome to Coffeeisseur</h1>
         </div>
 
         <!--Modal: Login & Register tabs-->
@@ -31,30 +30,34 @@
                 <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
 
                   <!--Body-->
-                  <div class="modal-body mb-1">
-                    <div class="md-form form-sm mb-5">
-                      <i class="fas fa-envelope prefix"></i>
-                      <input type="email" id="modalLRInput6" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput6">Your email</label>
-                    </div>
 
-                    <div class="md-form form-sm mb-4">
-                      <i class="fas fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput7" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput7">Your password</label>
-                    </div>
-                    <div class="text-center mt-2">
-                      <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div  class="form-login">
+                        <!-- Insert form here -->
+                        <h2>Log in</h2>
+
+                        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                          <div class="form-inputs">
+                            <%= f.input :email, required: false, autofocus: true, placeholder: "lewagon@gmail.com" %>
+                            <%= f.input :password, required: false, placeholder: "••••••" %>
+                            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                          </div>
+                          <div class="form-actions">
+                            <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+                          </div>
+                           <div class="forgot-pass">
+                              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                              <% end %>
+                            </div>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
+
                   <!--Footer-->
-                  <div class="modal-footer display-footer">
-                    <div class="options text-center text-md-right mt-1">
-                      <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                      <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                    </div>
-                    <button type="button" class="btn btn-outline-info waves-effects ml-auto" data-dismiss="modal">Close</button>
-                  </div>
+
 
                 </div>
                 <!--/.Panel 1-->
@@ -64,37 +67,44 @@
 
                   <!--Body-->
                   <div class="modal-body">
-                    <div class="md-form form-sm mb-5">
-                      <i class="fas fa-envelope prefix"></i>
-                      <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                    </div>
+                    <div class="container">
+                      <div class="row justify-content-center">
+                        <div class="form-login">
+                          <h2>Sign up</h2>
 
-                    <div class="md-form form-sm mb-5">
-                      <i class="fas fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput8" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput8">Your password</label>
-                    </div>
+                          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                          <%= f.error_notification %>
 
-                    <div class="md-form form-sm mb-4">
-                      <i class="fas fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput9" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput9">Repeat password</label>
-                    </div>
+                          <div class="form-inputs">
+                            <%= f.input :first_name,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "first-name" }%>
+                            <%= f.input :last_name,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "last-name" }%>
+                            <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" }%>
+                            <%= f.input :password,
+                            required: true,
+                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                            input_html: { autocomplete: "new-password" } %>
+                            <%= f.input :password_confirmation,
+                            required: true,
+                            input_html: { autocomplete: "new-password" } %>
+                          </div>
 
-                    <div class="text-center form-sm mt-2">
-                      <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
-                    </div>
+                          <div class="form-actions submit">
+                            <%= f.button :submit, "Sign up", class: "btn btn-primary"  %>
+                          </div>
+                          <% end %>
 
-                  </div>
-                  <!--Footer-->
-                  <div class="modal-footer">
-                    <div class="options text-right">
-                      <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                        </div>
+                      </div>
                     </div>
-                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
                 <!--/.Panel 2-->
               </div>
 
