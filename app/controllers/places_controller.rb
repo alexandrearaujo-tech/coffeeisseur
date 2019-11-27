@@ -1,10 +1,10 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show]
-  # skip_before_action :authenticate_user!, only: %i[index]
+  skip_before_action :authenticate_user!
+
 
   def show
-    # authorize @places
-    # @Reviews = @Place.experience.booking.review
+    @experiences = Experience.where(place_id: @place)
   end
 
   private
