@@ -1,5 +1,4 @@
 html {
-  // background: url(https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/bg.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -21,7 +20,7 @@ html {
 }
 
 .overlay {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80');
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,7 +106,7 @@ html {
 .filter-btn span {
   width: 40px;
   height: 40px;
-  background: #FA396B;
+  background: $mydarkgreen;
   display: block;
   position: absolute;
   right: 25px;
@@ -140,8 +139,8 @@ span.toggle-btn.ion-android-funnel:hover{
 .filter-btn:after {
   height: 170px;
   width: 170px;
-  content: '"\f38b"';
-  background-color: #FA396B;
+  content: '';
+  background: $mydarkgreen;
   position: absolute;
   top: -110px;
   right: -40px;
@@ -151,12 +150,13 @@ span.toggle-btn.ion-android-funnel:hover{
 }
 
 .filter-btn.open span.toggle-btn.ion-android-funnel {
-  background-color: #DE3963;
+  background: $mydarkgreen;
 }
 
 .filter-btn.open .ion-android-funnel:before {
-  font-family: 'FontAwesome';
-  content: "\f38b";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
 }
 
 .open:after {
@@ -198,7 +198,7 @@ span.toggle-btn.ion-android-funnel:hover{
   right: 0;
   height: 100px;
   transform: rotate(10deg);
-  width: 337px;
+  width: 450px;
   z-index: -1;
 }
 

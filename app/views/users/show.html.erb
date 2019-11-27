@@ -1,25 +1,35 @@
 <div class="overlay"></div>
   <div class="top">
     <div class="user-profile">
-      <img src="https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/profile.jpg">
+      <img src="https://avatars3.githubusercontent.com/u/55279478?v=4">
       <div class="user-details">
-        <h4>Hi <%= @user.first_name %>,</h4>
+        <h3>Hi <%= @user.first_name %>,</h3>
       </div>
     </div>
   </div>
   <div class="clearfix"></div>
   <div class="filter-btn">
+    <a id="all" href="#"><i class="fas fa-user"></i></a>
     <a id="one" href="#"><i class="fas fa-heart"></i></a>
-    <a id="two" href="#"><i class="fas fa-calendar"></i></a>
+
+    <%= link_to '#', id: 'two' do %>
+      <i class="fas fa-calendar"></i>
+    <% end %>
+
     <a id="three" href="#"><i class="fas fa-stamp"></i></a>
-    <a id="all" href="#"><i class="ion-ios-star-outline"></i></a>
-    <span class="toggle-btn ion-android-funnel"></span>
+    <span class="toggle-btn ion-android-funnel fas fa-bars"></span>
   </div>
   <div class="clearfix"></div>
   <div class="bottom">
-    <div class="title">
+
+    <div id="bookings" class="menus" style="display:none">
+      <%= render partial: 'user_bookings', locals: { bookings: @user.bookings} %>
+    </div>
+
+
+    <!-- <div class="title">
       <h3>My Profile</h3>
-      <small><%= Date.today %></small>
+      <small><%#= DateTime.now.strftime('%d/%m/%Y') %></small>
     </div>
     <ul class="tasks">
       <li class="one red">
@@ -68,6 +78,7 @@
         <span class="task-cat">Hangouts</span>
       </li>
 
-    </ul>
+    </ul> -->
   </div>
+
 
