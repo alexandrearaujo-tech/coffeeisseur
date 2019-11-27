@@ -3,26 +3,26 @@
 <p><%= @place.street %>, <%= @place.city %></p>
 
 <h4>Experiences</h4>
-<% @experiences.each do |experience| %>
-  <div id="carouselExperience" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card" style="width: 18rem;">
-          <%= link_to experience_path(experience) do %>
-            <%= cl_image_tag experience.photo, class: "card-img-top" %>
-          <% end %>
-          <div class="card-body px-3 py-2">
-            <p class="card-text"><%= experience.name %></p>
-            <div class="d-flex justify-content-between mb-0">
-              <p class="mb-1"><%= experience.average_rating %> <i class="fas fa-coffee"></i></p>
-              <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= experience.place.city %></p>
-            </div>
-          </div>
-        </div>
-        </div>
-          </div>
-        </div>
-<% end %>
+
+
+<div class="scrolling-wrapper-flexbox">
+  <% @experiences.each do |experience| %>
+
+  <div class="card" style="width: 18rem;">
+    <%= link_to experience_path(experience) do %>
+      <%= cl_image_tag experience.photo, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body px-3 py-2">
+      <p class="card-text"><%= experience.name %></p>
+      <div class="d-flex justify-content-between mb-0">
+        <p class="mb-1"><%= experience.average_rating %> <i class="fas fa-coffee"></i></p>
+        <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= experience.place.city %></p>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+</div>
 
 
 <h4>Reviews</h4>

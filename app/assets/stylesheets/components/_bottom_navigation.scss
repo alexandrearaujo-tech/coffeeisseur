@@ -1,6 +1,11 @@
+.nav-link {
+  color: white;
+}
+
 .botnav {
   justify-content: space-between;
-  background: white;
+  background-color: $mydarkgreen;
+  color: $white;
 }
 
 .botnav .botnav-collapse {
