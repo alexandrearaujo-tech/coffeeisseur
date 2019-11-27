@@ -1,2 +1,5 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="container">
+  <h1>Booking #<%= @booking.id %></h1>
+  <p>Email: <%= @booking.user.email %></p>
+  <p><%= @booking.experience.name %> is booked for <%= @booking.date %></p>
+</div>
