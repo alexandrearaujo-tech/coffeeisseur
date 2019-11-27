@@ -1,0 +1,12 @@
+<h3>Places list</h3>
+<ul class="list-unstyled">
+  <% @places.each do |place| %>
+    <li class="media">
+      <div class="media-body">
+        <%= link_to place_path(place.id) do %>
+          <h5 class="mt-0 mb-1"><%= place.name %></h5>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
