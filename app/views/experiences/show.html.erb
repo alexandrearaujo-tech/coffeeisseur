@@ -1,4 +1,4 @@
-<div class="experience-bg">
+<div class="experience-bg" style="background-image: url('<%= cl_image_path @experience.photo %>');">
   <div class="container">
     <h2 class="text-center"><%= @experience.name %></h2>
     <hr>
@@ -6,14 +6,38 @@
       <h5>About the experience...</h5>
       <p><%= @experience.description %></p>
     </div>
-    <%= link_to "Book me!", new_booking_path(@experience.id) %>
+    <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-success'} do %>
+      <i class="fas fa-plus mr-1"></i>Book Me!
+    <% end %>
   </div>
 </div>
 
 
 <!-- Booking modal -->
 
+<div class="modal fade" id="bookingModalCenter-<%= @experience.id %>" tabindex="-1" role="dialog" aria-labelledby="bookingModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookingModalLongTitle">Booking</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
+        <%= simple_form_for @booking, validate: true do |f| %>
+        <%= f.input :date, as: :string, input_html: { class: 'flatpickr-input'} %>
+        <%= f.input :experience_id, as: :hidden, :input_html => { value: @experience.id } %>
+        <div class="d-flex justify-content-between">
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= f.button :button, 'Cancel', :type => 'reset', class: "btn btn-outline-secondary", data: { dismiss: "modal", target: "bookingModalCenter-#{@experience.id}" } %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- End of Booking modal -->
 

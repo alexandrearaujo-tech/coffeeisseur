@@ -17,6 +17,7 @@ Review.destroy_all
 Experience.destroy_all
 Place.destroy_all
 Category.destroy_all
+Card.destroy_all
 
 remote_photo_url_place = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863463/yhldnrjutaxsyfrdilqi.jpg",
@@ -114,7 +115,5 @@ place9 = Place.create!(name: "Lee's Cafe", street: "Rua Filinto Elisio 21", city
 place10 = Place.create!(name: "Costa de Cafe", street: "Avenida da Liberdade 13", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
   Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"Mystery"), remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place10)
   Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Mystery"), remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place10)
-
-
 
 puts 'Done :)'
