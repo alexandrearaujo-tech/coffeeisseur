@@ -3,8 +3,7 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @places = Place.all
-    authorize @places
+    @places = policy_scope(Place)
   end
 
   def new
