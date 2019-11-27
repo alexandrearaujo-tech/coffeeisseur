@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :bookings
 
+  resources :categories, only: [:index]
+
 end

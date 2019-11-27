@@ -22,20 +22,36 @@ Category.destroy_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
     password: '123456')
-  end
+end
 
-#create Categories
+# Creating Categories
 
-  Category.create!(name: "tasting")
-  Category.create!(name: "roasting")
-  Category.create!(name: "meetup")
-  Category.create!(name: "mystery")
+Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
+Category.create!(name: "Competitions", icon: "fas fa-award")
+Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
+Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
+Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
+Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
+Category.create!(name: "mystery", icon: "fas fa-gift")
+
+  # Category.create!(name: "roasting")
+  # Category.create!(name: "meetup")
+Compliment.create!(name: "Food")
+Compliment.create!(name: "Space")
+Compliment.create!(name: "Coffee")
+Compliment.create!(name: "Staff")
+
+
 
 #create Places with real addressess
 place1 = Place.create!(name: "Benjamin Coffee House",street: "Rua do Possolo 52", city: "Lisbon", photo: "", average_rating: "")
-
-  Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"mystery"), place: place1)
-  Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"mystery"), place: place1)
+experience1 = Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"mystery"), place: place1)
+experience2 = Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"mystery"), place: place1)
+booking1 = Booking.create!(date: Time.now.to_datetime, user_id: 1, experience_id: 1)
+booking2 = Booking.create!(date: Time.now.to_datetime, user_id: 3, experience_id: 2)
+10.times do
+  Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking_id: rand(1..2), compliment_id: rand(1..4))
+end
 
 place2 = Place.create!(name: "COMOBA", street: "Rua de S. Paulo 99", city: "Lisbon", photo: "", average_rating: "")
   Experience.create!(name: "LisBOA ROA-sting!", category: Category.find_by(name:"mystery"), place: place2)
