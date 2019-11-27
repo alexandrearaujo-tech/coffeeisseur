@@ -8,6 +8,16 @@
 
 require 'faker'
 
+
+puts 'Creating Users, Places, Categories, Bookings, Experiences...'
+
+User.destroy_all
+Booking.destroy_all
+Review.destroy_all
+Experience.destroy_all
+Place.destroy_all
+Category.destroy_all
+
 remote_photo_url_place = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863463/yhldnrjutaxsyfrdilqi.jpg",
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863492/ebg0in801mwfpjs0nfml.jpg",
@@ -23,17 +33,6 @@ remote_photo_url_experience = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863557/xklgpuinczrnr0ix80yq.jpg",
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863569/ldjlcns9nqcyuei5obz4.jpg",
 ]
-
-
-puts 'Creating Users, Places, Categories, Bookings, Experiences...'
-
-User.destroy_all
-Booking.destroy_all
-Review.destroy_all
-Experience.destroy_all
-Place.destroy_all
-Category.destroy_all
-
 
 puts "Creating Users"
 
@@ -74,6 +73,7 @@ experience1 = Experience.create!(name: "Roasting with the Masters", category: Ca
 experience2 = Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Mystery"), remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place1)
 booking1 = Booking.create!(date: Time.now.to_datetime, user: User.first, experience: experience1)
 booking2 = Booking.create!(date: Time.now.to_datetime, user: User.last, experience: experience2)
+
 10.times do
   Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking_id: rand(1..2), compliment_id: rand(1..4))
 end
