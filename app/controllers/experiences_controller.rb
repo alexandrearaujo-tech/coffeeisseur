@@ -5,7 +5,7 @@ class ExperiencesController < ApplicationController
     else
       @experiences = Experience.all
     end
-    @categories = Category.all
+      @categories = Category.all
   end
 
   def show

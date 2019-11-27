@@ -8,4 +8,9 @@ class PlacesPolicy < ApplicationPolicy
   def show?
     true  # Anyone can view a restaurant
   end
+
+  def create?
+    user.admin # Anyone can create a restaurant
+  end
+
 end

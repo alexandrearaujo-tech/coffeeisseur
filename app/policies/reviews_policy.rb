@@ -1,4 +1,4 @@
-class BookingsPolicy < ApplicationPolicy
+class ReviewsPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -18,6 +18,7 @@ class BookingsPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user ||  user.admin # Only restaurant creator can update it
+    record.user == user  || user.admin # Only restaurant creator can update it
   end
+
 end
