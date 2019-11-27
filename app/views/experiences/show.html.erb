@@ -1,0 +1,20 @@
+<div class="experience-bg">
+  <div class="container">
+    <h2 class="text-center"><%= @experience.name %></h2>
+    <hr>
+    <div class="container">
+      <h5>About the experience...</h5>
+      <p><%= @experience.description %></p>
+    </div>
+    <%= link_to "Book me!", new_booking_path(@experience.id) %>
+  </div>
+</div>
+
+
+<!-- Booking modal -->
+
+
+
+<!-- End of Booking modal -->
+
+

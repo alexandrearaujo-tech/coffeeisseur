@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for @booking, validate: true do |f| %>
+  <%= f.input :date, as: :string, input_html: { class: 'flatpickr-input'} %>
+  <div class="d-flex justify-content-between">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.button :button, 'Cancel', :type => 'reset', class: "btn btn-outline-secondary" %>
+  </div>
+  <% end %>
+</div>
+
+
