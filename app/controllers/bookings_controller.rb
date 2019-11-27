@@ -4,7 +4,9 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+
     authorize @booking
+
   end
 
   def new
@@ -16,7 +18,17 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+
     authorize @booking
+
+    @experience = @booking.experience
+
+    if @booking.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
+
   end
 
   def edit

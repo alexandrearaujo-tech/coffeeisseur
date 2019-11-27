@@ -11,7 +11,11 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+
     authorize @experience
+
+    @booking = Booking.new
+
   end
 
   private
