@@ -3,24 +3,31 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    authorize @booking
   end
 
   def edit
+    authorize @booking
   end
 
   def update
+    authroize @booking
   end
 
   def destroy
+    authroize @booking
   end
 
   private
