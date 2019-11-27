@@ -32,7 +32,7 @@ Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
 Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
 Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
 Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
-Category.create!(name: "mystery", icon: "fas fa-gift")
+Category.create!(name: "Mystery", icon: "fas fa-gift")
 
   # Category.create!(name: "roasting")
   # Category.create!(name: "meetup")
@@ -53,9 +53,10 @@ booking2 = Booking.create!(date: Time.now.to_datetime, user_id: 3, experience_id
   Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking_id: rand(1..2), compliment_id: rand(1..4))
 end
 
+
 place2 = Place.create!(name: "COMOBA", street: "Rua de S. Paulo 99", city: "Lisbon", photo: "", average_rating: "")
-  Experience.create!(name: "LisBOA ROA-sting!", category: Category.find_by(name:"mystery"), place: place2)
-  Experience.create!(name: "Coffee Country", category: Category.find_by(name:"mystery"), place: place2)
+  Experience.create!(name: "LisBOA ROA-sting!", category: Category.find_by(name:"Mystery"), place: place2)
+  Experience.create!(name: "Coffee Country", category: Category.find_by(name:"Festivals"), place: place2)
 
 place3 = Place.create!(name: "Cafe de Finca", street: "Rua Luís de Camões 112 A", city: "Lisbon", photo: "", average_rating: "")
   Experience.create!(name: "Meet Over a Cup", category: Category.find_by(name:"mystery"), place: place3)
