@@ -5,6 +5,7 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+
   def show?
     true  # Anyone can view a restaurant
   end

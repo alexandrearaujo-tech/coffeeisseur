@@ -3,19 +3,18 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @places = Place.all
-    authorize @places
+    @places = policy_scope(Place)
   end
 
   def new
     @place = Place.new
-    # authorize @place
+    authorize @place
   end
 
   def create
     @place = Place.new(place_params)
-    # @place.user = current_user
-    # authorize @palace
+    @place.user = current_user
+    authorize @place
 
     if @place.save
       redirect_to place_path(@place)
@@ -26,6 +25,7 @@ class PlacesController < ApplicationController
 
   def show
     @experiences = Experience.where(place_id: @place)
+    authorize @experiences
   end
 
   private

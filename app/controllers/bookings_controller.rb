@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = policy_scope(Booking)
   end
 
   def show
@@ -31,11 +32,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    authroize @booking
+    authorize @booking
   end
 
   def destroy
-    authroize @booking
+    authorize @booking
   end
 
   private
