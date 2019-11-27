@@ -5,7 +5,7 @@ class ExperiencesController < ApplicationController
     if params[:category_id].present?
       @experiences = policy_scope(Experience.where(category_id: params[:category_id]))
     else
-      @experiences = Experience.all
+      @experiences = policy_scope(Experience)
     end
       @categories = Category.all
   end

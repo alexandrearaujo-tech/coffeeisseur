@@ -1,5 +1,8 @@
 import "bootstrap";
 import flatpickr from "flatpickr";
+import { loadDynamicBannerText } from '../components/banner';
+
+loadDynamicBannerText();
 
 
 // date picker
