@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'cards/show'
-  get 'cards/index'
-  get 'cards/new'
-  get 'cards/destroy'
-  get 'cards/update'
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
+
   get 'bookings/index'
   get 'bookings/show'
   get 'bookings/new'
@@ -19,9 +12,11 @@ Rails.application.routes.draw do
 
   resources :places
 
+  resources :cards
+
   resources :experiences, only: [:index, :show]
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
   resources :bookings
 
