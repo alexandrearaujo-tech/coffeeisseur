@@ -17,46 +17,65 @@ datePickers.forEach(element => {
 });
 
 
-// profile
+// // profile page
 
-$(function() {
-  $('.toggle-btn').click(function() {
-    $('.filter-btn').toggleClass('open');
+// $(function() {
+//   $('.toggle-btn').click(function() {
+//     $('.filter-btn').toggleClass('open');
 
-  });
+//   });
 
-  $('.filter-btn a').click(function() {
-    $('.filter-btn').removeClass('open');
+//   $('.filter-btn a').click(function() {
+//     $('.filter-btn').removeClass('open');
 
-  });
+//   });
 
-});
+// });
 
-$('#all').click(function() {
+// const x = document.getElementsByClassName("menus")
 
-  $('ul.tasks li').slideDown(300);
+// if(x != 'undefined'){
+//   // document.getElementById("one").addEventListener ("click", displayFavs);
+//   document.getElementById("two").addEventListener ("click", displayBookings);
+//   // document.getElementById("three").addEventListener ("click", displayCards);
+//   // document.getElementById("all").addEventListener ("click", displayProfile);
+// }
 
-});
+// function displayFavs() {
+//   var i;
+//   var x = document.getElementsByClassName("menus");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";
+//   }
+//   document.getElementById("favs").style.display = "block";
+// }
 
-$('#one').click(function() {
-  $('.tasks li:not(.one)').slideUp(300, function() {
-    $('.one').slideDown(300);
+// function displayBookings() {
+//   var i;
+//   var x = document.getElementsByClassName("menus");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";
+//   }
+//   document.getElementById("bookings").style.display = "block";
+// }
 
-  });
-});
+// function displayCards() {
+//   var i;
+//   var x = document.getElementsByClassName("menus");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";
+//   }
+//   document.getElementById("cards").style.display = "block";
+// }
 
-$('#two').click(function() {
-  $('.tasks li:not(.two)').slideUp(300, function() {
-    $('.two').slideDown(300);
-
-  });
-});
-$('#three').click(function() {
-  $('.tasks li:not(.three)').slideUp(300, function() {
-    $('.three').slideDown(300);
-
-  });
-});
+// function displayProfile() {
+//   var i;
+//   var x = document.getElementsByClassName("menus");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";
+//   }
+//   document.getElementById("profile").style.display = "block";
+// }
 
 
 
