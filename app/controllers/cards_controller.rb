@@ -1,10 +1,10 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:show]
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
 
   def index
     @user = current_user
-    # @cards = Card.where(user_id: 6)
+    @cards = Card.where(user_id: @user.id)
   end
 
   def new
@@ -14,11 +14,11 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    # @place.user = current_user
+    @card.user = current_user
     authorize @card
 
     if @card.save
-      redirect_to card_path(@card)
+      redirect_to cards_path
     else
       render :new
     end
@@ -40,6 +40,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:user_id, :place_id)
+    params.require(:card).permit(:place_id)
   end
 end

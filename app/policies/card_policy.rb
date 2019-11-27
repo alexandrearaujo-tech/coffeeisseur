@@ -1,4 +1,4 @@
-class CardsPolicy < ApplicationPolicy
+class CardPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,6 +6,10 @@ class CardsPolicy < ApplicationPolicy
   end
 
   def new?
+    true  # Anyone can view a restaurant
+  end
+
+  def save?
     true  # Anyone can view a restaurant
   end
 
