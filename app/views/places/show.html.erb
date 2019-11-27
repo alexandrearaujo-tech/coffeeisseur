@@ -1,36 +1,31 @@
 <%= image_tag ("hero_homepage.jpeg"), class: "img-fluid" %>
-<div class="mr-3">
-  <h1><%= @place.name %></h1>
-  <p><%= @place.street %>, <%= @place.city %></p>
-  <h3>Experiences</h3>
-  <ul class="list-unstyled">
+<h3><%= @place.name %></h3>
+<p><%= @place.street %>, <%= @place.city %></p>
+
+<h4>Experiences</h4>
+<ul class="list-unstyled">
   <% @experiences.each do |experience| %>
-  <li class="media">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1"><%= experience.name %></h5>
-      <%= experience.description %>
-      <br><br>
-    </div>
-  </li>
-  <% end %>
-  </ul>
-
-
-  <h3>Reviews</h3>
-  <ul class="list-unstyled">
-    <% @place.reviews.each do |review| %>
     <li class="media">
       <div class="media-body">
-        <h5 class="mt-0 mb-1">
-          Rating: <%= review.rating.times do %>
-          *
-          <% end %>
-        </h5>
-        <%= review.content %>
-        <br><br>
+       <h5 class="mt-0 mb-1"><%= experience.name %></h5>
+       <%= experience.description %>
       </div>
     </li>
-    <% end %>
-  </ul>
+  <% end %>
+</ul>
+
+<h4>Reviews</h4>
+
+<div class="list-group">
+  <% @place.reviews.each do |review| %>
+    <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Rating: <%= review.rating.times do %>
+          <i class="fas fa-coffee"></i>
+          <% end %></h5>
+        <small><%= time_ago_in_words(review.created_at) %></small>
+      </div>
+      <p class="mb-1"><%= review.content %></p>
+    </a>
+  <% end %>
 </div>
-<p></p>
