@@ -2,6 +2,10 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show]
   skip_before_action :authenticate_user!
 
+  def index
+    @places = Place.all
+  end
+
   def new
     @place = Place.new
     # authorize @place

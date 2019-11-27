@@ -20,7 +20,7 @@
   <% @place.reviews.each do |review| %>
     <a href="#" class="list-group-item list-group-item-action">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Rating: <%= review.rating.times do %>
+        <h5 class="mb-1">Rating: <% review.rating.times do %>
           <i class="fas fa-coffee"></i>
           <% end %></h5>
         <small><%= time_ago_in_words(review.created_at) %></small>
