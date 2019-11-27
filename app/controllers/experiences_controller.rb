@@ -3,7 +3,7 @@ class ExperiencesController < ApplicationController
 
   def index
     if params[:category_id].present?
-      @experiences = Experience.where(category_id: params[:category_id])
+      @experiences = policy_scope(Experience.where(category_id: params[:category_id]))
     else
       @experiences = Experience.all
     end
@@ -11,6 +11,10 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    authorize @experience
+    @booking = Booking.new
+    authorize @experience
+
     @booking = Booking.new
   end
 

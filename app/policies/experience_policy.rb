@@ -1,4 +1,4 @@
-class ExperiencesPolicy < ApplicationPolicy
+class ExperiencePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -21,3 +21,4 @@ class ExperiencesPolicy < ApplicationPolicy
     record.user == user  # Only restaurant creator can update it
   end
 end
+
