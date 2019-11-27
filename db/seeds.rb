@@ -75,7 +75,7 @@ booking1 = Booking.create!(date: Time.now.to_datetime, user: User.first, experie
 booking2 = Booking.create!(date: Time.now.to_datetime, user: User.last, experience: experience2)
 
 10.times do
-  Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking_id: rand(1..2), compliment_id: rand(1..4))
+  Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking: Booking.all.sample, compliment: Compliment.all.sample)
 end
 
 
