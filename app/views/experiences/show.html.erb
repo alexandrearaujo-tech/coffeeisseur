@@ -9,6 +9,14 @@
     <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-success'} do %>
       <i class="fas fa-plus mr-1"></i>Book Me!
     <% end %>
+
+    <div class="container">
+      <ul>
+        <% @experience.reviews.each do |review| %>
+          <li><%= review.content %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
 

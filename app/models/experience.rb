@@ -3,6 +3,7 @@ class Experience < ApplicationRecord
   belongs_to :place
   has_many :bookings
   has_many :user_experiences
+  has_many :reviews, through: :bookings
 
   mount_uploader :photo, PhotoUploader
 
