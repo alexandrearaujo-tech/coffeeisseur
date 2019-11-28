@@ -8,23 +8,24 @@ class PagesController < ApplicationController
 
   def search
     authorize User
-    # if params[:query].present?
-    #   sql_query = "name ILIKE :query OR city ILIKE :query OR street ILIKE :query"
-    #   @places = Place.where(sql_query, query: "%#{params[:query]}%")
-    # else
-    #   @Places = Place.all
-    # end
-    @places = Place.global_search(params[:query])
 
     if params[:query].present?
-      sql_query = " \
-        places.name @@ :query \
-        OR places.street @@ :query \
-        OR places.city @@ :query \
-      "
-      @places = Place.where(sql_query, query: "%#{params[:query]}%")
+      @places = Place.global_search(params[:query])
     else
-      @places = Place.all
+      @places = []
     end
+
+    # if params[:query].present?
+    #   sql_query = " \
+    #     places.name @@ :query \
+    #     OR places.street @@ :query \
+    #     OR places.city @@ :query \
+    #   "
+    #   @places = Place.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @places = Place.all
+    # end
+
+
   end
 end

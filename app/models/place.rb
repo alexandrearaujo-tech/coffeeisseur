@@ -13,6 +13,7 @@ class Place < ApplicationRecord
   validates :city, presence: true
   validates :street, presence: true
   validates :photo, presence: true
+  include AlgoliaSearch
 
   def address
     "#{street}, #{city}"
@@ -28,4 +29,9 @@ class Place < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  # algoliasearch do
+
+  # end
+
 end

@@ -19,6 +19,7 @@ gem 'flatpickr_rails'
 gem 'pundit'
 gem 'pg_search', '~> 2.3.0'
 gem 'geocoder'
+gem "algoliasearch-rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
