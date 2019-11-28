@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resources :places
 
-  resources :reviews
+  resources :reviews, except: [:new]
+  get 'reviews/new/:id', to: 'reviews#new'
 
   resources :cards
 
