@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    raise
     @review = Review.new
     authorize @review
   end
