@@ -1,4 +1,6 @@
 class ExperiencesController < ApplicationController
+  require 'rqrcode'
+
   before_action :set_experience, only: [:show]
 
   def index
@@ -7,15 +9,27 @@ class ExperiencesController < ApplicationController
     else
       @experiences = policy_scope(Experience)
     end
-      @categories = Category.all
+    @categories = Category.all
   end
 
   def show
     authorize @experience
-    @booking = Booking.new
-    authorize @experience
+
+    generate_qr(@experience.qr_code)
 
     @booking = Booking.new
+  end
+
+  def generate_qr(url)
+    qrcode = RQRCode::QRCode.new(url)
+
+    @barcode = qrcode.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6,
+      standalone: true
+    )
   end
 
   private

@@ -5,6 +5,7 @@
     <div class="container">
       <h5>About the experience...</h5>
       <p><%= @experience.description %></p>
+      <%= inline_svg @barcode %>
     </div>
     <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-success'} do %>
       <i class="fas fa-plus mr-1"></i>Book Me!
