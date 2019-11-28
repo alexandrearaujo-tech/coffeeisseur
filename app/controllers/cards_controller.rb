@@ -32,7 +32,7 @@ class CardsController < ApplicationController
   end
 
   def update
-    @card.stamp_count += if @card.stam_count < 5
+    @card.stamp_count += 1 if @card.stam_count < 5
   end
 
   private
@@ -44,4 +44,7 @@ class CardsController < ApplicationController
   def card_params
     params.require(:card).permit(:place_id)
   end
+
+
 end
+
