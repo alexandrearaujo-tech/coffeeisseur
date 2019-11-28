@@ -9,16 +9,17 @@ Rails.application.routes.draw do
 
   resources :cards
 
-  resources :experiences, only: [:index, :show]  do
-    resources :reviews, only: [:new]
-  end
-
+  resources :experiences, only: [:index, :show]
 
   resources :users, only: [:show, :edit, :update]
 
-  resources :bookings
+  resources :bookings do
+    resources :reviews, only: [:index, :new, :create]
+  end
 
   resources :categories, only: [:index]
 
   get "/fetch_experiences" => 'experiences#from_category', as: 'fetch_experiences'
+
+  get "/search" => 'pages#search'
 end

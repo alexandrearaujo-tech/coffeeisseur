@@ -13,6 +13,7 @@
   </head>
   <body>
     <% unless action_name == "map" %>
+  <body class="<%= controller_name %>-<%= action_name %>">
     <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>

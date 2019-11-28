@@ -17,8 +17,11 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'flatpickr_rails'
 gem 'pundit'
+gem 'pg_search', '~> 2.3.0'
+gem 'rqrcode'
+gem 'inline_svg'
 gem 'geocoder'
-
+gem "algoliasearch-rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

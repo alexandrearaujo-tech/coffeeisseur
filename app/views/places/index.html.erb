@@ -1,4 +1,4 @@
-<h3>Places list</h3>
+<!-- <h3>Places list</h3>
 <ul class="list-unstyled">
   <% @places.each do |place| %>
     <li class="media">
@@ -10,3 +10,26 @@
     </li>
   <% end %>
 </ul>
+
+
+
+ -->
+
+
+<!-- <div class="scrolling-wrapper-flexbox mt-2 py-3">
+    <% @places.each do |place| %>
+
+      <%= link_to places_path(place.id), remote: true do %>
+        <div class="container text-center">
+          <div class="card-avatar"><i class="<%= place.photo %>"></i></div>
+          <figcaption class="figure-caption text-center text-nowrap mt-1"><%= place.name %></figcaption>
+        </div>
+      <% end %>
+
+  <% end %>
+</div>
+ -->
+<div class="container mb-5 mt-3">
+  <%= render partial: 'places_list', locals: { places: @places} %>
+</div>
+

@@ -5,6 +5,18 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 import { initMapbox } from '../plugins/init_mapbox.js';
 
 initMapbox();
+//algolia
+// //= require algolia/v3/algoliasearch.min
+
+// var client = algoliasearch('QA2I617SDK', '489de8ff26e9d9de8e00090a6ec33065');
+// var index = client.initIndex('YourIndexName');
+// index.search('something', { hitsPerPage: 10, page: 0 })
+//   .then(function searchDone(content) {
+//     console.log(content)
+//   })
+//   .catch(function searchFailure(err) {
+//     console.error(err);
+//   });
 
 // date picker
 
@@ -19,6 +31,9 @@ datePickers.forEach(element => {
     minDate: "today",
   });
 });
+
+
+
 
 
 // profile page
