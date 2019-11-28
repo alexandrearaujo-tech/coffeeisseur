@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show]
+  before_action :set_card, only: [:show, :update]
 
   def index
     @cards = policy_scope(Card).where(user_id: current_user.id)
@@ -24,12 +24,15 @@ class CardsController < ApplicationController
   end
 
   def show
+    @places = Place.all
+    authorize @places
   end
 
   def destroy
   end
 
   def update
+    @card.stamp_count += if @card.stam_count < 5
   end
 
   private
