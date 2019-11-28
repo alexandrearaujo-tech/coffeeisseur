@@ -11,74 +11,29 @@
   <div class="filter-btn">
     <a id="all" href="#"><i class="fas fa-user"></i></a>
     <a id="one" href="#"><i class="fas fa-heart"></i></a>
-
-    <%= link_to '#', id: 'two' do %>
-      <i class="fas fa-calendar"></i>
-    <% end %>
-
+    <a id="two" href="#"><i class="fas fa-calendar"></i></a>
     <a id="three" href="#"><i class="fas fa-stamp"></i></a>
     <span class="toggle-btn ion-android-funnel fas fa-bars"></span>
   </div>
   <div class="clearfix"></div>
   <div class="bottom">
 
+    <div id="favs" class="menus" style="display:none">
+      <%= render partial: 'user_favs', locals: { places: @user.user_places, experiences: @user.user_experiences} %>
+    </div>
+
     <div id="bookings" class="menus" style="display:none">
       <%= render partial: 'user_bookings', locals: { bookings: @user.bookings} %>
     </div>
 
-
-    <!-- <div class="title">
-      <h3>My Profile</h3>
-      <small><%#= DateTime.now.strftime('%d/%m/%Y') %></small>
+    <div id="cards" class="menus" style="display:none">
+      <%= render partial: 'user_cards', locals: { cards: @user.cards} %>
     </div>
-    <ul class="tasks">
-      <li class="one red">
-        <span class="task-title">Make New Icon</span>
-        <span class="task-time">5pm</span>
-        <span class="task-cat">Web App</span>
 
-      </li>
-      <li class="one red">
-        <span class="task-title">Catch up with Brian</span>
-        <span class="task-time">3pm</span>
-        <span class="task-cat">Mobile Project</span>
+    <div id="profile" class="menus" style="display:block">
+      <%= render partial: 'user_profile' %>
+    </div>
 
-      </li>
-      <li class="two green">
-        <span class="task-title">Design Explorations</span>
-        <span class="task-time">2pm</span>
-        <span class="task-cat">Company Web site</span>
-
-      </li>
-      </li>
-      <li class="tow green hang">
-        <span class="task-title">Team Meeting</span>
-        <span class="task-time">2pm</span>
-        <span class="task-cat">Hangouts</span>
-        <img src="https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/2.jpg">
-        <img src="https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/3.jpg">
-        <img src="https://raw.githubusercontent.com/arjunamgain/FilterMenu/master/images/profile.jpg">
-      </li>
-      <li class="three yellow">
-        <span class="task-title">New Projects</span>
-        <span class="task-time">2pm</span>
-        <span class="task-cat">Starting</span>
-
-
-      </li>
-
-      <li class="three yellow">
-        <span class="task-title">Lunch with Mary</span>
-        <span class="task-time">2pm</span>
-        <span class="task-cat">Grill House</span>
-      </li>
-      <li class="three yellow">
-        <span class="task-title">Team Meeting</span>
-        <span class="task-time">2pm</span>
-        <span class="task-cat">Hangouts</span>
-      </li>
-
-    </ul> -->
   </div>
 
 

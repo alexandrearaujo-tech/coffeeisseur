@@ -1,6 +1,23 @@
-<ul>
-  <% bookings.each do |booking| %>
-  <li><%= booking.experience.name %></li>
-  <% end %>
-</ul>
+<div class="title">
+  <h3>My Bookings</h3>
+</div>
+
+<% bookings.each do |booking| %>
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div>
+          <%= booking.experience.name %>
+          <%= booking.date %>
+        </div>
+        <div>
+          <i class="fas fa-trash-alt"></i>
+          <i class="fas fa-edit"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
 
