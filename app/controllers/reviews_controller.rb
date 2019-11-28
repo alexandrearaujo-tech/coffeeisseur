@@ -1,9 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :destroy, :update]
+  before_action :set_experience, only: [:create]
+
   def show
   end
 
   def new
+    raise
     @review = Review.new
     authorize @review
   end
@@ -11,7 +14,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     authorize @review
-
+    @booking = Booking.where(user_id: current_user.id).where(booking_id: @experience.booking_id)
+    authorize @booking
+    @review.user_id = current_user.id
+    @review.booking_id = @booking.id
     if @review.save
       redirect_to review_path
     else
@@ -32,6 +38,11 @@ class ReviewsController < ApplicationController
 
   def set_review
     @card = Review.find(params[:id])
+  end
+
+  def set_experience
+    @experience = Experience.find(params[:id])
+    authorize @experience
   end
 
   def review_params

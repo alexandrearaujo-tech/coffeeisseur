@@ -1,2 +1,6 @@
-<h1>Cards#show</h1>
-<p>Find me in app/views/cards/show.html.erb</p>
+<h1>Card: #<%= @card.id %> <%= @places.find(@card.place_id).name %></h1>
+
+<% @card.stamp_count.times do %>
+  <i class="fas fa-coffee"></i>
+<% end %></h5>
+
