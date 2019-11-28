@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'map', to: 'pages#map', as: 'map'
 
   resources :places
 

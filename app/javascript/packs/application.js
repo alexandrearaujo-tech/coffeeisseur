@@ -1,6 +1,10 @@
 import "bootstrap";
 import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import { initMapbox } from '../plugins/init_mapbox.js';
+
+initMapbox();
 
 // date picker
 
