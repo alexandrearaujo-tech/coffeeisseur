@@ -17,12 +17,13 @@
     <%= link_to "Show all", experiences_path %>
   </div>
 
- <!--  <div class="scrolling-wrapper-flexbox">
+  <div class="scrolling-wrapper-flexbox">
     <% @experiences.each do |experience| %>
 
     <div class="card" style="width: 18rem;">
       <%= link_to experience_path(experience) do %>
-        <%= cl_image_tag experience.photo, class: "card-img-top" %>
+        <%=
+        cl_image_tag experience.photo, class: "card-img-top" %>
       <% end %>
       <div class="card-body px-3 py-2">
         <p class="card-text"><%= experience.name %></p>
@@ -34,7 +35,7 @@
 
     </div>
     <% end %>
-  </div> -->
+  </div>
 </div>
 
 <hr>

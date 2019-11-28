@@ -15,7 +15,8 @@ class PagesController < ApplicationController
           lng: place.longitude
         }
       end
-    
+  end
+
   def search
     authorize User
 
