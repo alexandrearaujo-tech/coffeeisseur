@@ -17,7 +17,9 @@
 
     <%= yield %>
 
-    <%= render 'shared/bottom_navigation' %>
+    <%= if current_user.present? %>
+      <%= render 'shared/bottom_navigation' %>
+    <% end %>
 
 
     <p class="notice"><%= notice %></p>
