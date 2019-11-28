@@ -3,7 +3,7 @@
 <p>Find me in app/views/cards/index.html.erb</p>
 
 <% @cards.each do |card| %>
-  <h5 class="mb-1"><%= @places.find(card.place_id).name %>
+  <h5 class="mb-1"><%=@places.find(card.place_id).name %>
 
   <% card.stamp_count.times do %>
    <i class="fas fa-coffee"></i>
