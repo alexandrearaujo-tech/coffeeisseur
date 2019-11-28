@@ -1,4 +1,6 @@
 class ExperiencesController < ApplicationController
+  require 'rqrcode'
+
   before_action :set_experience, only: [:show]
 
   def index
@@ -7,16 +9,15 @@ class ExperiencesController < ApplicationController
     else
       @experiences = policy_scope(Experience)
     end
-      @categories = Category.all
+    @categories = Category.all
   end
 
   def show
     authorize @experience
     @booking = Booking.new
-    authorize @experience
-
-    @booking = Booking.new
   end
+
+
 
   private
 
