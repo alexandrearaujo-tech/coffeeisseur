@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   resources :places
 
-  resources :reviews
+  # resources :reviews, except: [:new]
 
   resources :cards
 
-  resources :experiences, only: [:index, :show]
+  resources :experiences, only: [:index, :show]  do
+    resources :reviews, only: [:new]
+  end
+
 
   resources :users, only: [:show, :edit, :update]
 

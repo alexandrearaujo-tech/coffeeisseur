@@ -19,6 +19,7 @@ gem 'flatpickr_rails'
 gem 'pundit'
 gem 'rqrcode'
 gem 'inline_svg'
+gem 'geocoder'
 
 
 group :development do
