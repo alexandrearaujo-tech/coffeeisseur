@@ -1,0 +1,22 @@
+
+function refreshList() {
+  const newPlaceList = document.getElementById('place_list');
+  newPlaceList.innerHTML = '';
+}
+
+function displayFilteredList(placeHTML) {
+  const placesList = document.getElementById('place_list');
+  placesList.insertAdjacentHTML('beforeend', placeHTML);
+}
+
+refreshList();
+displayFilteredList('<%= j render "place_list", places: @places %>');
+
+
+
+
+
+
+
+
+

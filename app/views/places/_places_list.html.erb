@@ -1,0 +1,29 @@
+<div id="place_list">
+  <% places.each do |place| %>
+
+  <p><strong>Explore <%= place.name %>...</strong></p>
+
+  <div id="carouselPlace" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <div class="card" style="width: 18rem;">
+          <%= link_to place_path(place) do %>
+          <%= cl_image_tag place.photo, class: "card-img-top" %>
+          <% end %>
+          <div class="card-body px-3 py-2">
+            <p class="card-text"><%= place.name %></p>
+            <div class="d-flex justify-content-between mb-0">
+              <p class="mb-1"><%= place.city %> <i class="fas fa-coffee"></i></p>
+              <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= place.street %></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <% end %>
+</div>
