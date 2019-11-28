@@ -13,6 +13,20 @@
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+  }
+}
+
+
+.nav-item {
+  .nav-link{
+  color: grey;
+  }
+}
+
+
+.nav-item {
+  .nav-link.active{
+  color: brown;
   }
 }
