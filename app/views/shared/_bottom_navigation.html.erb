@@ -5,8 +5,8 @@
   <%= link_to root_path, class: "nav-link" do %>
     <i class="fas fa-search"></i>
   <% end %>
-  <%= link_to root_path, class: "nav-link" do %>
-    <i class="fas fa-star"></i>
+  <%= link_to user_path(current_user), class: "nav-link" do %>
+    <i class="fas fa-user"></i>
   <% end %>
   <%= link_to root_path, class: "nav-link" do %>
     <i class="fas fa-map"></i>

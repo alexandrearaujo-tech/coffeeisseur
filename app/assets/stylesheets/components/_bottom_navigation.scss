@@ -1,5 +1,11 @@
 .nav-link {
   color: white;
+  opacity: 0.7;
+
+  &:hover {
+    color: white;
+    opacity: 1;
+  }
 }
 
 .botnav {
