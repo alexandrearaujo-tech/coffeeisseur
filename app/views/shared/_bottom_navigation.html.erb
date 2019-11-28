@@ -2,11 +2,13 @@
   <%= link_to root_path, class: "nav-link" do %>
     <i class="fas fa-home"></i>
   <% end %>
-  <%= link_to root_path, class: "nav-link" do %>
+  <%= link_to search_path, class: "nav-link" do %>
     <i class="fas fa-search"></i>
   <% end %>
-  <%= link_to user_path(current_user), class: "nav-link" do %>
-    <i class="fas fa-user"></i>
+  <% if current_user %>
+    <%= link_to user_path(current_user), class: "nav-link" do %>
+      <i class="fas fa-user"></i>
+    <% end %>
   <% end %>
   <%= link_to root_path, class: "nav-link" do %>
     <i class="fas fa-map"></i>

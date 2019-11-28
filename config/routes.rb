@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
 
   get "/fetch_experiences" => 'experiences#from_category', as: 'fetch_experiences'
+
+  get "/search" => 'pages#search'
 end

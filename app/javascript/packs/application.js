@@ -2,6 +2,7 @@ import "bootstrap";
 import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
 
+
 // date picker
 
 const datePickers = document.querySelectorAll('.flatpickr-input')
@@ -15,6 +16,9 @@ datePickers.forEach(element => {
     minDate: "today",
   });
 });
+
+
+
 
 
 // profile page
