@@ -59,8 +59,11 @@ a {
 
 
 .reviewTitle{
-  color:black;
+  color:white;
   margin-top: 20px;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.3);
+  width: 87px;
 }
 
 
