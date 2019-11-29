@@ -193,7 +193,7 @@ bookings_id = []
 end
 
 puts "Creating Review"
-10.times do
+200.times do
   Review.create!(
     content: reviews_content[rand(0..4)],
     rating: rand(1..5),
