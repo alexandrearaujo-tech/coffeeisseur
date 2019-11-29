@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
+      @experience.average_rating = (@experience.average_rating + @review.rating) / @experience.reviews.count
       redirect_to experience_path(@experience)
     else
       render :new

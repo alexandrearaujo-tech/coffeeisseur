@@ -1,10 +1,11 @@
 import "bootstrap";
 import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
-import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout
 import { initMapbox } from '../plugins/init_mapbox.js';
 
 initMapbox();
+
 //algolia
 // //= require algolia/v3/algoliasearch.min
 
@@ -99,13 +100,6 @@ function displayProfile() {
 loadDynamicBannerText();
 
 
-//  const imgBtn = document.querySelector('.img__btn')
 
-//  if(imgBtn !== null) {
-//    imgBtn.addEventListener("click", (event) => {
-//      console.log(event.currentTarget);
-//      document.querySelector('.cont').classList.toggle('s--signup');
-//    });
-// };
 
 
