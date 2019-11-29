@@ -34,14 +34,6 @@ datePickers.forEach(element => {
 });
 
 
-// navbar
-
-$('.botnav .nav-link').click(function(){
-    $('.botnav .nav-link').removeClass('active');
-    $(this).addClass('active');
-})
-
-
 // profile page
 
 $(function() {
