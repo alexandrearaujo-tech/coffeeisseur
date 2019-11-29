@@ -1,30 +1,31 @@
 #searchcontainer{
-  padding: 55px;
-  color: saddlebrown;
-  .btn{
-    background-color: saddlebrown;
+  // padding: 55px;
+  // color: saddlebrown;
+  // .btn{
+  //   background-color: saddlebrown;
+  // }
+
+}
+
+// .results a{
+//   color: saddlebrown
+// }
+// .results a:hover{
+//   color: red;
+// }
+.img-result {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+    // margin-left: 30px;
+}
+
+.results {
+  a {
+      align-self: center;
+      font-size: 20px;
   }
-
-}
-
-.results a{
-  color: saddlebrown
-}
-.results a:hover{
-  color: red;
-}
-
-.result{
-    display: flex;
-    padding: 15px;
-    img{
-        margin-left: 30px;
-    }
-    a {
-        align-self: center;
-        font-size: 20px;
-    }
-    a.city{
-      color: darkgreen;
-    }
+  a.city{
+    color: darkgreen;
+  }
 }
