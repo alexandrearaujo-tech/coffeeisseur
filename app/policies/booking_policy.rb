@@ -7,11 +7,15 @@ class BookingPolicy < ApplicationPolicy
 
 
   def show?
-    true  # Anyone can view a restaurant
+    true
   end
 
   def create?
-    true  # Anyone can create a restaurant
+    true
+  end
+
+  def edit?
+    record.user == user || user.admin
   end
 
   def update?
@@ -19,6 +23,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user ||  user.admin # Only restaurant creator can update it
+    record.user == user ||  user.admin
   end
 end
