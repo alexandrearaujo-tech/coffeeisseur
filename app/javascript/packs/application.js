@@ -34,7 +34,12 @@ datePickers.forEach(element => {
 });
 
 
+// navbar
 
+$('.botnav .nav-link').click(function(){
+    $('.botnav .nav-link').removeClass('active');
+    $(this).addClass('active');
+})
 
 
 // profile page
@@ -59,6 +64,7 @@ document.getElementById("one").addEventListener ("click", displayFavs);
 document.getElementById("two").addEventListener ("click", displayBookings);
 document.getElementById("three").addEventListener ("click", displayCards);
 document.getElementById("all").addEventListener ("click", displayProfile);
+
 
 
 function displayFavs() {
@@ -97,7 +103,7 @@ function displayProfile() {
   document.getElementById("profile").style.display = "block";
 }
 
-loadDynamicBannerText();
+// loadDynamicBannerText();
 
 
 

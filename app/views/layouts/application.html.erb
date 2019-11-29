@@ -17,8 +17,9 @@
     <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
 
     <%= render 'shared/bottom_navigation' %>
 
