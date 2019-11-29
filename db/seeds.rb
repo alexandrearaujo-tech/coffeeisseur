@@ -10,13 +10,13 @@ require 'faker'
 
 puts "Deleting previous all previous attributes..."
 
-# Review.destroy_all
-# Booking.destroy_all
-# Category.destroy_all
-# Compliment.destroy_all
-# Experience.destroy_all
-# Place.destroy_all
-# User.destroy_all
+Review.destroy_all
+Booking.destroy_all
+Category.destroy_all
+Compliment.destroy_all
+Experience.destroy_all
+Place.destroy_all
+User.destroy_all
 
 # Card.destroy_all
 # Interest.destroy_all
