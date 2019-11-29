@@ -4,7 +4,7 @@
   <% @user_places.each do |user_place| %>
     <li class="list-group-item">
       <%= link_to place_path(@user_places.place_id), class: "" do %>
-        <i class="fas fa-user"></i><%=@places.find(card.place_id).name %>
+        <i class="fas fa-star"></i><%=@places.find(card.place_id).name %>
       <% end %>
     </li>
   </ul>
