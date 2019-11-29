@@ -1,8 +1,8 @@
-<div class="scrolling-wrapper-flexbox mt-2 py-3">
+<div class="scrolling-wrapper-flexbox">
     <% @categories.each do |category| %>
 
       <%= link_to experiences_path(category_id: category.id), remote: true do %>
-        <div class="container text-center">
+        <div class="icon-container text-center">
           <div class="card-avatar"><i class="<%= category.icon %>"></i></div>
           <figcaption class="figure-caption text-center text-nowrap mt-1"><%= category.name %></figcaption>
         </div>
