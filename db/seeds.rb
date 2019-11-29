@@ -132,6 +132,7 @@ places_id = []
   place = Place.create!(
     name: places[rand(0..9)][:name],
     street: places[rand(0..9)][:street],
+    average_rating: rand(1..5),
     city: places[rand(0..9)][:city],
     remote_photo_url: remote_photo_url_place[rand(0..4)]
   )
@@ -175,7 +176,7 @@ experiencies_id = []
     name: experiencies[rand(0..9)][:name],
     category_id: categories_id[rand(0..6)],
     description: experiencies[rand(0..9)][:description],
-    average_rating: rand(1.0..5.0),
+    average_rating: rand(1..5),
     remote_photo_url: remote_photo_url_experience[rand(0..4)],
     place_id: places_id[rand(0..19)]
   )
