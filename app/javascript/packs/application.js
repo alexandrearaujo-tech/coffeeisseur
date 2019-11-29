@@ -34,9 +34,6 @@ datePickers.forEach(element => {
 });
 
 
-
-
-
 // profile page
 
 $(function() {
@@ -59,6 +56,7 @@ document.getElementById("one").addEventListener ("click", displayFavs);
 document.getElementById("two").addEventListener ("click", displayBookings);
 document.getElementById("three").addEventListener ("click", displayCards);
 document.getElementById("all").addEventListener ("click", displayProfile);
+
 
 
 function displayFavs() {
@@ -97,7 +95,7 @@ function displayProfile() {
   document.getElementById("profile").style.display = "block";
 }
 
-loadDynamicBannerText();
+// loadDynamicBannerText();
 
 
 

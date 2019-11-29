@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       @experience.average_rating = (@experience.average_rating + @review.rating) / @experience.reviews.count
+      @experience.save!
       redirect_to experience_path(@experience)
     else
       render :new
