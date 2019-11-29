@@ -1,2 +1,11 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="container">
+  <%= simple_form_for @booking, validate: true do |f| %>
+    <%= f.input :date, as: :string, input_html: { class: 'flatpickr-input'} %>
+    <%= f.input :experience_id, as: :hidden, :input_html => { value: @booking.experience_id } %>
+    <div class="d-flex justify-content-between">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', user_path(current_user), class: 'btn btn-outline-secondary mb-2' %>
+    </div>
+  <% end %>
+</div>
+
