@@ -1,11 +1,12 @@
-<div class="container">
+<!-- <div class="container"> -->
   <div class="row justify-content-center">
     <div class="col-sm-5 form">
-      <h2>Leave your review for the experience</h2>
-      <%= simple_form_for [@booking,@review], validate: true do |f| %>
-        <%= f.input :content %>
-        <%= f.input :rating %>
+      <h2>How was your experience?</h2>
+      <%= simple_form_for [@booking, @review], validate: true do |f| %>
+        <%= f.input :rating, input_html: {value: ''}, label: "Rating between 1 to 5" %>
+
         <%= f.association :compliment %>
+        <%= f.input :content, label: "There is something more you want to share?" %>
         <%= f.submit class: 'btn btn-primary mb-2' %>
         <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mb-2' %>
       <% end %>
