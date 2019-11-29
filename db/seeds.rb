@@ -102,16 +102,16 @@ places = [
 ]
 
 experiencies = [
-  {name: "LisBOA ROA-sting!"},
-  {name: "Coffee Country"},
-  {name: "Meet Over a Cup"},
-  {name: "Taste of Finca"},
-  {name: "Group Drink Meetup"},
-  {name: "Nao Caoffe"},
-  {name: "Ethiopia Tasting"},
-  {name: "Bean Me Up!"},
-  {name: "Naked Coffee!"},
-  {name: "Now THIS is coffee"},
+  {name: "LisBOA ROA-sting!", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Coffee Country", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Meet Over a Cup", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Taste of Finca", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Group Drink Meetup", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Nao Caoffe", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Ethiopia Tasting", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Bean Me Up!", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Naked Coffee!", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Now THIS is coffee", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
 ]
 
 
@@ -174,7 +174,8 @@ experiencies_id = []
   experience = Experience.create!(
     name: experiencies[rand(0..9)][:name],
     category_id: categories_id[rand(0..6)],
-    description: 'A Special Description!',
+    description: experiencies[rand(0..9)][:description],
+    average_rating: rand(1.0..5.0),
     remote_photo_url: remote_photo_url_experience[rand(0..4)],
     place_id: places_id[rand(0..19)]
   )
