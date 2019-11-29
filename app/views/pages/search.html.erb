@@ -19,7 +19,7 @@
           <div class="d-flex justify-content-between">
             <div>
             <%= link_to place.name, place_path(place.id) %><br>
-            <i class="fas fa-map-marker-alt"></i>  <%= link_to place.city, place_path(place.id), class: "city" %>
+            <i class="fas fa-map-marker-alt"></i>  <%= link_to place.address, place_path(place.id), class: "city" %>
             </div>
             <div>
             <%= cl_image_tag place.photo, class: "img-result" %>
