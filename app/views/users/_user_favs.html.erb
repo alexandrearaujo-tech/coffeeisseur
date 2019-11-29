@@ -1,3 +1,11 @@
 <div class="title">
-  <h3>My Favorites</h3>
+  <h3>My Favorites Places</h3>
+  <ul class="list-group">
+  <% @user_places.each do |user_place| %>
+    <li class="list-group-item">
+      <%= link_to place_path(@user_places.place_id), class: "" do %>
+        <i class="fas fa-user"></i><%=@places.find(card.place_id).name %>
+      <% end %>
+    </li>
+  </ul>
 </div>
