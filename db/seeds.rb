@@ -12,10 +12,10 @@ puts "Deleting previous all previous attributes..."
 
 Review.destroy_all
 Booking.destroy_all
-Category.destroy_all
 Compliment.destroy_all
 Experience.destroy_all
 Place.destroy_all
+Category.destroy_all
 User.destroy_all
 
 # Card.destroy_all
