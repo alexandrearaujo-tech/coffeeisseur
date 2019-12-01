@@ -3,8 +3,20 @@ import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout
 import { initMapbox } from '../plugins/init_mapbox.js';
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
 
 initMapbox();
+
+// compliments choice
+
+$(document).ready(function(){
+  $(".compliment-choice").click(function(){
+    $(this).toggleClass("active");
+  });
+});
+
 
 //algolia
 // //= require algolia/v3/algoliasearch.min
@@ -94,6 +106,10 @@ function displayProfile() {
   }
   document.getElementById("profile").style.display = "block";
 }
+
+
+
+
 
 // loadDynamicBannerText();
 

@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
+    @review.user = current_user
     @experience = Experience.find(@booking.experience_id)
     authorize @review
 

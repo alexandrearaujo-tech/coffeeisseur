@@ -1,14 +1,31 @@
-<!-- <div class="container"> -->
-  <div class="row justify-content-center">
-    <div class="col-sm-5 form">
-      <h2>How was your experience?</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <h4 class="text-center form">How was your experience?</h4>
       <%= simple_form_for [@booking, @review], validate: true do |f| %>
-        <%= f.input :rating, input_html: {value: ''}, label: "Rating between 1 to 5" %>
 
-        <%= f.association :compliment %>
-        <%= f.input :content, label: "There is something more you want to share?" %>
-        <%= f.submit class: 'btn btn-primary mb-2' %>
-        <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mb-2' %>
+        <%= f.input :rating, label: false, collection: (1..5).to_a, class: 'icons-stars' %>
+
+        <div class="form-group">
+          <input type="hidden" name="post[compliment_ids][]" value="">
+
+          <div class="compliment-choices">
+            <% Compliment.all.each do |compliment| %>
+              <input type="checkbox" class="d-none" value="<%= compliment.id %>"
+                     name="post[compliment_ids][]" id="post_compliment_ids_<%= compliment.id %>">
+              <label class="compliment-choice" for="post_category_ids_<%= compliment.id %>">
+                <%= compliment.name %>
+              </label>
+            <% end %>
+           </div>
+        </div>
+
+        <%= f.input :content, label: "Would you like to share anything else?", placeholder: "Help other coffeeisseurs have better experiences" %>
+        <div class="d-flex justify-content-center m-2">
+          <%= f.submit class: 'btn btn-primary mx-1' %>
+          <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mx-1' %>
+        </div>
+
       <% end %>
     </div>
   </div>

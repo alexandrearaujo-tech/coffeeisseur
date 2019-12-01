@@ -1,0 +1,32 @@
+.compliment-choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.compliment-choice {
+  background: $mydarkgreen;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &.active {
+    background: $mydarkgreen;
+    opacity: 1;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+.br-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+h4.form {
+  color: $mydarkgreen;
+}
