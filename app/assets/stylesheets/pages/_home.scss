@@ -1,3 +1,8 @@
+h5 {
+  color: $mydarkgreen;
+  font-weight: bold;
+}
+
 .content {
   margin-top: 40px;
 }
@@ -24,14 +29,14 @@
 
 .nav-item {
   .nav-link{
-  color: grey;
+    color: grey;
   }
 }
 
 
 .nav-item {
   .nav-link.active{
-  color: brown;
+    color: brown;
   }
 }
 
@@ -47,8 +52,8 @@
 }
 
 .home-video-wrapper {
-height: 350px;
-display: flex;
+  height: 350px;
+  display: flex;
 }
 h1.home {
   color: white;
@@ -68,4 +73,9 @@ h1.home {
   z-index: 1;
   display: flex;
   top: 0;
+}
+
+.link-home {
+  font-size: 13px;
+  opacity: 0.7;
 }
