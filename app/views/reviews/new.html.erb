@@ -1,14 +1,33 @@
-<!-- <div class="container"> -->
-  <div class="row justify-content-center">
-    <div class="col-sm-5 form">
-      <h2>How was your experience?</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <h4 class="text-center form">How was your experience?</h4>
       <%= simple_form_for [@booking, @review], validate: true do |f| %>
-        <%= f.input :rating, input_html: {value: ''}, label: "Rating between 1 to 5" %>
 
-        <%= f.association :compliment %>
-        <%= f.input :content, label: "There is something more you want to share?" %>
-        <%= f.submit class: 'btn btn-primary mb-2' %>
-        <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mb-2' %>
+        <%= f.input :rating, label: false, collection: (1..5).to_a, class: 'icons-stars' %>
+
+          <div class="form-group">
+            <p class="pt-2 text-center">What was the best thing about it?</p>
+            <input type="hidden" name="review[compliment_id]" value="">
+
+            <div class="compliment-choices">
+              <% Compliment.all.each do |compliment| %>
+
+              <input class="form-check-input radio_buttons required d-none" type="radio" value="<%= compliment.id %>"
+                     name="review[compliment_id]" id="review_compliment_id_<%= compliment.id %>">
+              <label class="form-check-label collection_radio_buttons compliment-choice" for="review_compliment_id_<%= compliment.id %>">
+                <%= compliment.name %>
+              </label>
+              <% end %>
+            </div>
+          </div>
+
+        <%= f.input :content, label: "Would you like to share anything else?", placeholder: "Help other coffeeisseurs have better experiences" %>
+        <div class="d-flex justify-content-center m-2">
+          <%= f.submit class: 'btn btn-primary mx-1' %>
+          <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mx-1' %>
+        </div>
+
       <% end %>
     </div>
   </div>

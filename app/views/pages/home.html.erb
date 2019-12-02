@@ -1,26 +1,31 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
+<!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
   <div class="container">
     <h1>What would you like to experience?</h1>
-    <p>
-      <span id="banner-typed-text"></span>
-    </p>
   </div>
+</div> -->
+
+<div class="home-video-wrapper align-items-center justify-content-center">
+  <h1 class="home">What would you like to experience today?</h1>
+
+  <div class="gradient align-self-start"></div>
+  <%= video_tag "coffee_video.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
 </div>
+
 
 
 <!-- Experiences -->
 
-<div class="container mt-2 mb-5">
+<div class="container mb-5 pt-0">
 
   <div class="d-flex justify-content-between align-items-center">
-    <p>Explore Experiences...</p>
-    <p><%= link_to "Show all", experiences_path %></p>
+    <h5>Explore Experiences</h5>
+    <%= link_to "See all", experiences_path, class: 'link-home'%>
   </div>
 
   <div class="scrolling-wrapper-flexbox">
     <% @experiences.each do |experience| %>
 
-    <div class="card" style="width: 18rem;">
+    <div class="card ml-0 mt-0" style="width: 16rem;">
       <%= link_to experience_path(experience) do %>
         <%=
         cl_image_tag experience.photo, class: "card-img-top" %>
@@ -30,37 +35,6 @@
         <div class="d-flex justify-content-between mb-0">
           <p class="mb-1"><%= experience.average_rating %> <i class="fas fa-coffee"></i></p>
           <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= experience.place.city %></p>
-        </div>
-      </div>
-
-    </div>
-    <% end %>
-  </div>
-</div>
-
-<hr>
-
-<!-- Places -->
-
-<div class="container mb-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <p>Explore Places...</p>
-    <p><%= link_to "Show all", places_path %></p>
-  </div>
-
-
-  <div class="scrolling-wrapper-flexbox">
-    <% @places.each do |place| %>
-
-    <div class="card" style="width: 18rem;">
-      <%= link_to place_path(place) do %>
-        <%= cl_image_tag place.photo, class: "card-img-top" %>
-      <% end %>
-      <div class="card-body px-3 py-2">
-        <p class="card-text"><%= place.name %></p>
-        <div class="d-flex justify-content-between mb-0">
-          <p class="mb-1"><%= place.average_rating %> <i class="fas fa-coffee"></i></p>
-          <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= place.city %></p>
         </div>
       </div>
 
