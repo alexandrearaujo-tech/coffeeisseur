@@ -8,7 +8,7 @@
 
 require 'faker'
 
-puts "Deleting previous all previous attributes..."
+puts "Deleting all previous attributes..."
 
 Review.destroy_all
 Booking.destroy_all
@@ -17,6 +17,30 @@ Experience.destroy_all
 Place.destroy_all
 Category.destroy_all
 User.destroy_all
+
+
+puts "Creating Categories"
+categories_id = []
+category = Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
+categories_id << category.id
+
+category = Category.create!(name: "Competitions", icon: "fas fa-award")
+categories_id << category.id
+
+category = Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
+categories_id << category.id
+
+category = Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
+categories_id << category.id
+
+category = Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
+categories_id << category.id
+
+category = Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
+categories_id << category.id
+
+category = Category.create!(name: "Mystery", icon: "fas fa-gift")
+categories_id << category.id
 
 # Card.destroy_all
 # Interest.destroy_all
@@ -128,7 +152,7 @@ end
 
 puts "Creating Places"
 places_id = []
-20.times do
+10.times do
   place = Place.create!(
     name: places[rand(0..9)][:name],
     street: places[rand(0..9)][:street],
@@ -136,31 +160,17 @@ places_id = []
     city: places[rand(0..9)][:city],
     remote_photo_url: remote_photo_url_place[rand(0..4)]
   )
+  experience = Experience.create!(
+    name: experiencies[rand(0..9)][:name],
+    category_id: categories_id[rand(0..6)],
+    description: experiencies[rand(0..9)][:description],
+    average_rating: rand(1..5),
+    remote_photo_url: remote_photo_url_experience[rand(0..4)],
+    place: place
+  )
   places_id << place.id
 end
 
-puts "Creating Categories"
-categories_id = []
-category = Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
-categories_id << category.id
-
-category = Category.create!(name: "Competitions", icon: "fas fa-award")
-categories_id << category.id
-
-category = Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
-categories_id << category.id
-
-category = Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
-categories_id << category.id
-
-category = Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
-categories_id << category.id
-
-category = Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
-categories_id << category.id
-
-category = Category.create!(name: "Mystery", icon: "fas fa-gift")
-categories_id << category.id
 
 puts "Creating Compliment"
 Compliment.create!(name: "Food")
@@ -169,37 +179,24 @@ Compliment.create!(name: "Coffee")
 Compliment.create!(name: "Staff")
 Compliment.create!(name: "Customers")
 
-puts "Creating Experiencies"
-experiencies_id = []
-20.times do
-  experience = Experience.create!(
-    name: experiencies[rand(0..9)][:name],
-    category_id: categories_id[rand(0..6)],
-    description: experiencies[rand(0..9)][:description],
-    average_rating: rand(1..5),
-    remote_photo_url: remote_photo_url_experience[rand(0..4)],
-    place_id: places_id[rand(0..19)]
-  )
-  experiencies_id << experience.id
-end
 
 puts "Create Booking"
 bookings_id = []
-40.times do
+20.times do
   booking = Booking.create!(
     date: DateTime.new,
     user_id: users_id[rand(0..4)],
-    experience_id: experiencies_id[rand(0..19)],
+    experience: Experience.all.sample
   )
   bookings_id << booking.id
 end
 
 puts "Creating Review"
-200.times do
+20.times do
   Review.create!(
     content: reviews_content[rand(0..4)],
     rating: rand(1..5),
-    booking_id: bookings_id[rand(0..39)],
+    booking_id: bookings_id.sample,
     compliment: Compliment.all.sample
   )
 end
