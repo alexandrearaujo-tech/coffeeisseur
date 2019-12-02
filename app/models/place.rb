@@ -13,7 +13,6 @@ class Place < ApplicationRecord
   validates :city, presence: true
   validates :street, presence: true
   validates :photo, presence: true
-  include AlgoliaSearch
 
   def address
     "#{street}, #{city}"
@@ -30,8 +29,8 @@ class Place < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  # algoliasearch do
 
-  # end
-
+  def self.find_by_name(name)
+    Place.where('name ILIKE ?', "%#{name}%")
+  end
 end

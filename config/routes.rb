@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'map', to: 'pages#map', as: 'map'
+  get :autocomplete, to: 'pages#autocomplete'
 
   resources :places
 
