@@ -3,21 +3,11 @@ import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout
 import { initMapbox } from '../plugins/init_mapbox.js';
+import { autocompleteSearch } from '../components/autocomplete';
+
+autocompleteSearch();
 
 initMapbox();
-
-//algolia
-// //= require algolia/v3/algoliasearch.min
-
-// var client = algoliasearch('QA2I617SDK', '489de8ff26e9d9de8e00090a6ec33065');
-// var index = client.initIndex('YourIndexName');
-// index.search('something', { hitsPerPage: 10, page: 0 })
-//   .then(function searchDone(content) {
-//     console.log(content)
-//   })
-//   .catch(function searchFailure(err) {
-//     console.error(err);
-//   });
 
 // date picker
 
@@ -51,11 +41,12 @@ $(function() {
 
 const x = document.getElementsByClassName("menus")
 
-
-document.getElementById("one").addEventListener ("click", displayFavs);
-document.getElementById("two").addEventListener ("click", displayBookings);
-document.getElementById("three").addEventListener ("click", displayCards);
-document.getElementById("all").addEventListener ("click", displayProfile);
+if (document.body.classList.contains("users-show")) {
+  document.getElementById("one").addEventListener ("click", displayFavs);
+  document.getElementById("two").addEventListener ("click", displayBookings);
+  document.getElementById("three").addEventListener ("click", displayCards);
+  document.getElementById("all").addEventListener ("click", displayProfile);
+}
 
 
 

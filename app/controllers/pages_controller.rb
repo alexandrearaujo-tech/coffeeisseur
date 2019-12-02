@@ -21,23 +21,19 @@ class PagesController < ApplicationController
 
   def search
     authorize User
+    @sug = Place.all.pluck(:name)
 
     if params[:query].present?
       @places = Place.global_search(params[:query])
     else
       @places = []
     end
+  end
 
-    # if params[:query].present?
-    #   sql_query = " \
-    #     places.name @@ :query \
-    #     OR places.street @@ :query \
-    #     OR places.city @@ :query \
-    #   "
-    #   @places = Place.where(sql_query, query: "%#{params[:query]}%")
-    # else
-    #   @places = Place.all
-    # end
+  def autocomplete
+    authorize User
+    results = AutocompleteSearchService.new(params[:query]).call
 
+    render json: results
   end
 end
