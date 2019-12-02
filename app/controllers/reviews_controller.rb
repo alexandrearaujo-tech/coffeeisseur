@@ -14,11 +14,20 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     @experience = Experience.find(@booking.experience_id)
+    @card = Card.new
     authorize @review
 
     if @review.save
       @experience.average_rating = (@experience.average_rating + @review.rating) / @experience.reviews.count
       @experience.save!
+      if @card.nil?
+        @card.user_id = current_user.id
+        @card.place_id = @experience.place_id
+        @card.save!
+      else
+        @card.stamp_count += 1 if @card.stamp_count < 5
+        @card.save!
+      end
       redirect_to experience_path(@experience)
     else
       render :new
