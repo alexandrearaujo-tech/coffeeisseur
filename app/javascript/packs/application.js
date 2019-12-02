@@ -13,9 +13,11 @@ initMapbox();
 
 $(document).ready(function(){
   $(".compliment-choice").click(function(){
-    $(this).toggleClass("active");
+    $(this).toggleClass("active").siblings('.compliment-choice').removeClass("active");
+
   });
 });
+
 
 
 //algolia
