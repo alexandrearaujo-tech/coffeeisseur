@@ -1,5 +1,6 @@
 import 'js-autocomplete/auto-complete.css';
 import autocomplete from 'js-autocomplete';
+import { showMarkers } from '../plugins/init_mapbox';
 
 const renderItem = function({ name, city, street }) {
   const icon = '<i class="fas fa-map-marker-alt"></i>';
@@ -16,21 +17,20 @@ const autocompleteSearch = function() {
       selector: searchInput,
       minChars: 2,
       onSelect: (event, term, item) => {
-        console.log(item);
         searchInput.value = item.dataset.name;
-        searchInput.form.submit();
       },
       source: function(term, suggest) {
-        $.getJSON('/autocomplete',
+        $.getJSON('/autocomplete.json',
           { query: term },
           function(data) {
             return data;
         }).then((data) => {
           const matches = []
-          data.places.forEach((place) => {
+          data.forEach((place) => {
             matches.push(place);
           });
-          suggest(matches)
+          suggest(matches);
+          showMarkers(data);
         });
       },
       renderItem: renderItem,

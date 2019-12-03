@@ -1,0 +1,9 @@
+<div id="markerwin" class="title d-flex justify-content-between">
+  <%= cl_image_tag place.photo, class: "avatar avatar-map" %>
+  <% place.experiences.each do |experience| %>
+  <div class="map-info">
+    <h5><%= link_to experience.name, experience_path(experience)%></h5>
+    <p><%= link_to place.name, experience_path(experience)%></p>
+  <% end %>
+  </div>
+</div>
