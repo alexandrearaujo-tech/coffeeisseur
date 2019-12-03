@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get "/fetch_experiences" => 'experiences#from_category', as: 'fetch_experiences'
 
   get "/search" => 'pages#search'
+
+  get "/redeem/:id" => 'cards#update'
 end
