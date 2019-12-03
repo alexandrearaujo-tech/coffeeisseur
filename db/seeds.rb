@@ -9,7 +9,11 @@ Experience.destroy_all
 Place.destroy_all
 Category.destroy_all
 User.destroy_all
-
+Card.destroy_all
+# Interest.destroy_all
+# UserExperience.destroy_all
+# UserPlace.destroy_all
+# UserInterest.destroy_all
 
 puts "Creating Categories"
 categories_id = []
@@ -33,12 +37,6 @@ categories_id << category.id
 
 category = Category.create!(name: "Suprise Me", icon: "fas fa-gift")
 categories_id << category.id
-
-# Card.destroy_all
-# Interest.destroy_all
-# UserExperience.destroy_all
-# UserPlace.destroy_all
-# UserInterest.destroy_all
 
 remote_photo_url_place = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/q_auto/v1574863463/yhldnrjutaxsyfrdilqi.jpg",
@@ -140,18 +138,14 @@ experiences = [
   {category_id: categories_id[5],name: "AeroPress Championship", description: "The annual AeroPress Championship for coffee enthusiasts and professionals who gather to compete for the best AeroPress recipe. The winner gets a trip to the World Finals to represent Portugal."}
 ]
 
-
 puts "Creating Users"
 users_id = []
-
 user_one = User.create!(
   first_name: 'Sharon',
   last_name: 'Moriel',
   email: 'sharon@gmail.com',
   password: '123456')
   users_id << user_one.id
-
-
 user_two = User.create!(
   first_name: 'Andre',
   last_name: 'Pires',
@@ -159,10 +153,9 @@ user_two = User.create!(
   password: '123456')
   users_id << user_two.id
 
-
 puts "Creating Places and Experiences"
-
 experiences_id = []
+places_id = []
 i = 0
 10.times do
   place = Place.create!(
@@ -172,6 +165,7 @@ i = 0
     city: places[i][:city],
     remote_photo_url: remote_photo_url_place[i]
   )
+  places_id << place.id
   experience = Experience.create!(
     name: experiences[i][:name],
     description: experiences[i][:description],
@@ -184,9 +178,7 @@ i = 0
   i += 1
 end
 
-
 puts "Creating Compliment"
-
 Compliment.create!(name: "Food")
 Compliment.create!(name: "Space")
 Compliment.create!(name: "Coffee")
@@ -196,6 +188,7 @@ Compliment.create!(name: "Customers")
 
 puts "Creating Bookings & Reviews"
 bookings_id = []
+reviews_id = []
 i = 0
 10.times do
   booking = Booking.create!(
@@ -204,14 +197,34 @@ i = 0
     experience: Experience.find(experiences_id[i])
   )
   4.times do
-    Review.create!(
+    review = Review.create!(
       content: reviews_content[rand(0..4)],
       rating: rand(1..5),
       booking_id: booking.id,
       compliment: Compliment.all.sample
     )
+    reviews_id << review.id
   end
   i += 1
+end
+
+puts "Creating Cards"
+cards_id = []
+10.times do
+  card = Card.create!(
+    stamp_count: rand(1..4),
+    state: 0,
+    user_id: users_id[rand(0..1)],
+    place_id: places_id[rand(0..9)]
+  )
+end
+4.times do
+  card = Card.create!(
+    stamp_count: 5,
+    state: 1,
+    user_id: users_id[rand(0..1)],
+    place_id: places_id[rand(0..9)]
+  )
 end
 
 puts 'Done :)'
