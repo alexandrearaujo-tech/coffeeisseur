@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :user_places
   has_many :user_interests
 
-  validates :email, presence: true, format: { with: /\A.*@.*\.com\z/ }
+  validates :email, presence: true, format: { with: /\A.*@.*\.*\z/ }
   validates :first_name, presence: true
   validates :last_name, presence: true
 end

@@ -4,7 +4,7 @@ class AutocompleteSearchService
   end
 
   def call
-    { places: places.as_json(only: %i[name city street]) }
+    places
   end
 
   private
