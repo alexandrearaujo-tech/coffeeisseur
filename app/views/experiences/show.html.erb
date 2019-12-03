@@ -1,47 +1,43 @@
 <%= cl_image_tag @experience.photo, class: "card-img-top" %>
 
 <div class="container">
-<div class="d-flex justify-content-between align-items-center">
-  <h4 class="text-center"><%= @experience.name %></h4>
-  <small class="text-muted"><i class="fas fa-map-marker-alt mr-1"></i><%= @experience.place.name %></small>
-</div>
 
-<p class="text-center"><%= @experience.description %></p>
+  <h4 class="experience text-center"><%= @experience.name %></h4>
+  <p class="location text-muted"><i class="fas fa-map-marker-alt mr-1"></i><%= @experience.place.name %></p>
 
-<div class= "text-center pb-3">
-  <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-sm btn-outline-success'} do %>
-    <i class="fas fa-plus"></i> Book Now
-  <% end %>
-</div>
+  <p class="text-center"><%= @experience.description %></p>
 
+  <div class= "text-center pb-3">
+    <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-sm btn-outline-success'} do %>
+      <i class="fas fa-plus"></i> Book Now
+    <% end %>
+  </div>
 
+  <!-- Reviews -->
+  <h6 class="pt-2 mt-3 mb-0">Popular Reviews</h6>
+  <small class="text-muted my-0"><%= @experience.reviews.count %> reviews</small>
+  <div class="scrolling-wrapper-flexbox my-2">
+      <% @experience.reviews.each do |review| %>
 
-
-<!-- Reviews -->
-<h6 class="pt-2 mt-3 mb-0">Popular Reviews</h6>
-<small class="text-muted my-0"><%= @experience.reviews.count %> reviews</small>
-<div class="scrolling-wrapper-flexbox my-2">
-    <% @experience.reviews.each do |review| %>
-
-      <div class="card ml-0 mt-0" style="width: 16rem;">
-        <div class="card-body px-3 py-2">
-          <div class="d-flex justify-content-between">
-            <h5>
-              <% review.rating.times do %>
-                <i class="fas fa-coffee"></i>
-              <% end %>
-            </h5>
-            <small><%= time_ago_in_words(review.created_at) %></small>
-          </div>
-          <div id="card-collapse" class="collapse-content">
-            <p class="card-text collapse" id="collapseContent"><%= review.content %></p>
-            <a class="p-1 my-1 mr-0 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+        <div class="card ml-0 mt-0" style="width: 16rem;">
+          <div class="card-body px-3 py-2">
+            <div class="d-flex justify-content-between">
+              <h5>
+                <% review.rating.times do %>
+                  <i class="fas fa-coffee"></i>
+                <% end %>
+              </h5>
+              <small><%= time_ago_in_words(review.created_at) %></small>
+            </div>
+            <div id="card-collapse" class="collapse-content">
+              <p class="card-text collapse" id="collapseContent"><%= review.content %></p>
+              <a class="p-1 my-1 mr-0 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+            </div>
           </div>
         </div>
-      </div>
 
-    <% end %>
-</div>
+      <% end %>
+  </div>
 
 </div>
 
@@ -52,7 +48,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="bookingModalLongTitle">Booking</h5>
+        <h5 class="modal-title" id="bookingModalLongTitle"><%= @experience.name %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

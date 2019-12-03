@@ -9,8 +9,22 @@ a {
   }
 }
 
-h6, h4 {
+h4.experience {
   color: $mydarkgreen;
+  letter-spacing: 4px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+h6 {
+  color: $mydarkgreen;
+}
+
+.location {
+  text-align: center;
+  font-size: 12px;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 // Partial Collapse
