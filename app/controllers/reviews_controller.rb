@@ -55,29 +55,18 @@ class ReviewsController < ApplicationController
   end
 
   def card_stamp
-    @cards = Card.where(user_id: current_user.id).where(place_id: @experience.place_id)
-    @card = Card.new
-    authorize @card
-    @card.user_id = current_user.id
-    @card.place_id = @experience.place_id
-    if @cards.last.state.active? || @cards.nil?
+    @cards = Card.where(user_id: current_user.id).where(state: 0).where(place_id: @experience.place_id)
+    authorize @cards
+    if @cards.count.zero?
+      @card = Card.new
+      @card.user_id = current_user.id
+      @card.place_id = @experience.place_id
       @card.stamp_count = 1
-      @card.active!
-    elsif @cards.last.completed?
-      @new_card = Card.create!(
-        user_id: @card.user_id,
-        place_id: @card.place_id,
-        stamp_count: 1
-      )
-      @new_card.save!
-      @new_card.active!
+      @card.save!
     else
-      @card = Card.where(user_id: current_user.id).where(place_id: @experience.place_id).last
-      if @card.stamp_count < 5
-        @card.stamp_count += 1
-        @card.completed! if @card.stamp_count == 5
-      end
+      @cards.first.stamp_count += 1 if @cards.first.stamp_count < 5
+      @cards.first.completed! if @cards.first.stamp_count == 5
+      @cards.first.save!
     end
-    @card.save!
   end
 end
