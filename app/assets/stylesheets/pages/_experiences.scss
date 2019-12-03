@@ -9,6 +9,32 @@ a {
   }
 }
 
+h6, h4 {
+  color: $mydarkgreen;
+}
+
+// Partial Collapse
+
+#card-collapse #collapseContent.collapse:not(.show) {
+  display: block;
+  /* height = lineheight * no of lines to display */
+  height: 4.5em;
+  overflow: hidden;
+}
+
+#card-collapse a.collapsed:after {
+  content: '+ Show More';
+  color: $mydarkgreen;
+  font-family: 'Nunito';
+}
+
+#card-collapse a:not(.collapsed):after {
+  content: '- Show Less';
+  color: $mydarkgreen;
+}
+
+// End of Partial Collapse
+
 
 .icon-container {
   margin: 10px;
@@ -76,14 +102,6 @@ a {
   background: rgb(0, 0, 0); /* Fallback color */
   background: rgba(0, 0, 0, 0.3); /* Black background with 0.5 opacity */
   color: #f1f1f1; /* Grey text */
-}
-
-.bookme{
-
-  display: flex;
-  p{
-    margin-bottom: 0;
-  }
 }
 
 
