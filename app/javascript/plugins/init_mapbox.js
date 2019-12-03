@@ -18,12 +18,12 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    // map.addControl(new mapboxgl.GeolocateControl({
-    //   positionOptions: {
-    //     enableHighAccuracy: true
-    //   },
-    //   trackUserLocation: true
-    // }));
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
 
     const markers = JSON.parse(mapElement.dataset.markers);
 
@@ -34,8 +34,8 @@ const initMapbox = () => {
         element.className = 'marker';
         element.style.backgroundImage = `url('${marker.image_url}')`;
         element.style.backgroundSize = 'contain';
-        element.style.width = '25px';
-        element.style.height = '25px';
+        element.style.width = '16px';
+        element.style.height = '20px';
 
       new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])

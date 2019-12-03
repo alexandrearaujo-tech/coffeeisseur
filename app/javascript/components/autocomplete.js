@@ -16,6 +16,7 @@ const autocompleteSearch = function() {
       selector: searchInput,
       minChars: 2,
       onSelect: (event, term, item) => {
+        console.log(item);
         searchInput.value = item.dataset.name;
         searchInput.form.submit();
       },
