@@ -27,7 +27,7 @@ class CardsController < ApplicationController
     @places = Place.all
     authorize @places
     url = ENV['CURRENT_URL_ROOT']
-    qrcode = RQRCode::QRCode.new("#{url}/redeeem/#{@card.id}")
+    qrcode = RQRCode::QRCode.new("#{url}/redeem/#{@card.id}")
 
     @svg = qrcode.as_svg(
       offset: 0,

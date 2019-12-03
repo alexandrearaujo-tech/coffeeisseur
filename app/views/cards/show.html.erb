@@ -6,10 +6,8 @@
     <div class="card-body">
       <h3 class="mb-1"><%= @places.find(@card.place_id).name %></h3>
       <p class="card-text">Your stamps:</p>
-      <% @card.stamp_count.times do %>
-        <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
-      <% end %>
-      <%= render inline: @svg %>
+       <%= render inline: @svg %>
+      <br><br>
     </div>
   </div>
 </div>
