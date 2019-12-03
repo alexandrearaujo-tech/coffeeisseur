@@ -26,12 +26,25 @@ class CardsController < ApplicationController
   def show
     @places = Place.all
     authorize @places
+
+    qrcode = RQRCode::QRCode.new("/redeeem/#{@card.id}")
+
+    @svg = qrcode.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6,
+      standalone: true
+    )
+
   end
 
   def destroy
   end
 
   def update
+    authorize @card
+    @card.redeemed!
   end
 
   private

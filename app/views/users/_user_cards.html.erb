@@ -1,15 +1,44 @@
 <div class="title">
   <h3>My Cards</h3>
-  <% @cards.each do |card| %>
-  <div class="card" style="width: 18rem;">
-    <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
-    <div class="card-body">
-      <h3 class="mb-1"><%=@places.find(card.place_id).name %>
-      <p class="card-text">Your stamps:</p>
-      <% card.stamp_count.times do %>
-        <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
-      <% end %></h5>
+
+  <% @cards.where(state: 1).each do |card| %>
+
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
+      <div class="card-body">
+        <h3 class="mb-1"><%= @places.find(card.place_id).name %></h3>
+        <p class="card-text">Your stamps:</p>
+        <% card.stamp_count.times do %>
+          <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
+        <% end %>
+        <% if card.completed? %>
+          <%= link_to card_path(card.id) do %>
+            <button class="btn btn-primary">Redeem</button>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+
   <% end %>
+
+  <% @cards.where(state: 0).each do |card| %>
+
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
+      <div class="card-body">
+        <h3 class="mb-1"><%= @places.find(card.place_id).name %></h3>
+        <p class="card-text">Your stamps:</p>
+        <% card.stamp_count.times do %>
+          <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
+        <% end %>
+        <% if card.completed? %>
+          <%= link_to card_path(card.id) do %>
+            <button class="btn btn-primary">Redeem</button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+
 </div>
