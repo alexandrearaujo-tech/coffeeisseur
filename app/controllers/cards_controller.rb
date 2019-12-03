@@ -26,8 +26,8 @@ class CardsController < ApplicationController
   def show
     @places = Place.all
     authorize @places
-
-    qrcode = RQRCode::QRCode.new("/redeeem/#{@card.id}")
+    url = ENV['CURRENT_URL_ROOT']
+    qrcode = RQRCode::QRCode.new("#{url}/redeeem/#{@card.id}")
 
     @svg = qrcode.as_svg(
       offset: 0,
@@ -36,7 +36,6 @@ class CardsController < ApplicationController
       module_size: 6,
       standalone: true
     )
-
   end
 
   def generate
