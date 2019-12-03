@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     authorize @user_places
     @review = Review.new
     authorize @review
+
   end
 
   def edit
