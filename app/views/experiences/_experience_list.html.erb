@@ -14,7 +14,7 @@
           <div class="card-body px-3 py-2">
             <p class="card-text"><%= experience.name %></p>
             <div class="d-flex justify-content-between mb-0">
-              <p class="mb-1"><%= experience.average_rating %> <i class="fas fa-coffee"></i></p>
+              <p class="mb-1"><%= experience.average_rating.round(1) %> <i class="fas fa-coffee"></i></p>
               <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <%= experience.place.city %></p>
             </div>
           </div>
