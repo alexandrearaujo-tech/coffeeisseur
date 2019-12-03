@@ -50,6 +50,7 @@ class CardsController < ApplicationController
   def update
     authorize @card
     @card.redeemed!
+    redirect_to user_path(current_user)
   end
 
   private

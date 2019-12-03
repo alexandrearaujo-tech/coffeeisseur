@@ -5,7 +5,7 @@
     <%= cl_image_tag @places.find(@card.place_id).photo, class: "card-img-top" %>
     <div class="card-body">
       <h3 class="mb-1"><%= @places.find(@card.place_id).name %></h3>
-      <p class="card-text">Your stamps:</p>
+      <p class="card-text">Show the code to redeem the gift</p>
        <%= render inline: @svg %>
       <br><br>
     </div>
