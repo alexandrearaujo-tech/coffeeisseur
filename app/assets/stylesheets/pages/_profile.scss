@@ -20,7 +20,7 @@ html {
 }
 
 .overlay {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1498721409281-998093cc905b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1498721409281-998093cc905b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,10 +40,14 @@ html {
 }
 
 .top {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
   position: relative;
+  background-size: 450px;
+  background-position: center;
   min-height: 240px;
   padding: 15px;
   color: #fff;
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.7);
 }
 
 .top .nav span {
@@ -187,7 +191,6 @@ span.toggle-btn.ion-android-funnel:hover{
   position: relative;
   color: #222;
   padding-top: 0px;
-  opacity: 0.9;
   height: 500px;
 }
 
@@ -200,7 +203,6 @@ span.toggle-btn.ion-android-funnel:hover{
   right: 0;
   height: 88px;
   transform: rotate(10deg);
-  width: 467px;
   z-index: -1;
 }
 
@@ -288,9 +290,23 @@ ul li.hang img {
 }
 
 #profile{
-      .btn-danger{
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          }
+  .btn-danger{
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      }
 }
+
+
+.day-num {
+
+}
+
+.month {
+
+}
+
+.day {
+
+}
+
