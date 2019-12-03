@@ -11,4 +11,8 @@ class UserPolicy < ApplicationPolicy
   def search?
     true
   end
+
+  def autocomplete?
+    true
+  end
 end

@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show]
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @places = policy_scope(Place)

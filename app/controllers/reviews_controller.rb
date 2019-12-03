@@ -13,10 +13,12 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
-    @experience = Experience.find(@booking.experience_id)
     authorize @review
-
+    @experience = Experience.find(@booking.experience_id)
+    authorize @experience
     if @review.save
+      experience_avg
+      card_stamp
       redirect_to experience_path(@experience)
     else
       render :new
@@ -45,5 +47,26 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content, :rating, :compliment_id, :booking_id)
+  end
+
+  def experience_avg
+    @experience.average_rating = (@experience.average_rating + @review.rating) / @experience.reviews.count
+    @experience.save!
+  end
+
+  def card_stamp
+    @cards = Card.where(user_id: current_user.id).where(state: 0).where(place_id: @experience.place_id)
+    authorize @cards
+    if @cards.count.zero?
+      @card = Card.new
+      @card.user_id = current_user.id
+      @card.place_id = @experience.place_id
+      @card.stamp_count = 1
+      @card.save!
+    else
+      @cards.first.stamp_count += 1 if @cards.first.stamp_count < 5
+      @cards.first.completed! if @cards.first.stamp_count == 5
+      @cards.first.save!
+    end
   end
 end

@@ -1,22 +1,27 @@
 import "bootstrap";
 import flatpickr from "flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
-import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout
 import { initMapbox } from '../plugins/init_mapbox.js';
+import { autocompleteSearch } from '../components/autocomplete';
+import { initStarRating } from '../plugins/init_star_rating';
 
+if (document.body.classList.contains("pages-search")){
+  autocompleteSearch();
+}
+
+initStarRating();
 initMapbox();
-//algolia
-// //= require algolia/v3/algoliasearch.min
 
-// var client = algoliasearch('QA2I617SDK', '489de8ff26e9d9de8e00090a6ec33065');
-// var index = client.initIndex('YourIndexName');
-// index.search('something', { hitsPerPage: 10, page: 0 })
-//   .then(function searchDone(content) {
-//     console.log(content)
-//   })
-//   .catch(function searchFailure(err) {
-//     console.error(err);
-//   });
+// compliments choice
+
+$(document).ready(function(){
+  $(".compliment-choice").click(function(){
+    $(this).toggleClass("active").siblings('.compliment-choice').removeClass("active");
+
+  });
+});
+
 
 // date picker
 
@@ -31,9 +36,6 @@ datePickers.forEach(element => {
     minDate: "today",
   });
 });
-
-
-
 
 
 // profile page
@@ -53,11 +55,13 @@ $(function() {
 
 const x = document.getElementsByClassName("menus")
 
+if (document.body.classList.contains("users-show")) {
+  document.getElementById("one").addEventListener ("click", displayFavs);
+  document.getElementById("two").addEventListener ("click", displayBookings);
+  document.getElementById("three").addEventListener ("click", displayCards);
+  document.getElementById("all").addEventListener ("click", displayProfile);
+}
 
-document.getElementById("one").addEventListener ("click", displayFavs);
-document.getElementById("two").addEventListener ("click", displayBookings);
-document.getElementById("three").addEventListener ("click", displayCards);
-document.getElementById("all").addEventListener ("click", displayProfile);
 
 
 function displayFavs() {
@@ -96,16 +100,13 @@ function displayProfile() {
   document.getElementById("profile").style.display = "block";
 }
 
-loadDynamicBannerText();
 
 
-//  const imgBtn = document.querySelector('.img__btn')
 
-//  if(imgBtn !== null) {
-//    imgBtn.addEventListener("click", (event) => {
-//      console.log(event.currentTarget);
-//      document.querySelector('.cont').classList.toggle('s--signup');
-//    });
-// };
+
+// loadDynamicBannerText();
+
+
+
 
 

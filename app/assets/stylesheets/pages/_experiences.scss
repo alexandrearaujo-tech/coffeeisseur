@@ -9,6 +9,11 @@ a {
   }
 }
 
+
+.icon-container {
+  margin: 10px;
+}
+
 .experience-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   object-fit: cover;
@@ -52,6 +57,39 @@ a {
   }
 }
 
+.container {
+  padding: 30px;
+  margin-bottom: 33px;
+}
 
 
+.reviewTitle{
+  color:white;
+  margin-top: 20px;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.3);
+  width: 87px;
+}
 
+
+.reviewDesc{
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.3); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+}
+
+.bookme{
+
+  display: flex;
+  p{
+    margin-bottom: 0;
+  }
+}
+
+
+.descTitle{
+  font-size: 25px;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.3); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+}

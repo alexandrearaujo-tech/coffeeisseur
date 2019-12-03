@@ -9,16 +9,20 @@
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
-    <% unless action_name == "map" %>
   <body class="<%= controller_name %>-<%= action_name %>">
-    <%= render 'shared/navbar' %>
-    <% end %>
-    <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <% unless action_name == "map" %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <div class="content">
+    <% end %>
+
+    <%= render 'shared/flashes' %>
+    <div class="content-nomargin">
+      <%= yield %>
+    </div>
 
     <%= render 'shared/bottom_navigation' %>
 

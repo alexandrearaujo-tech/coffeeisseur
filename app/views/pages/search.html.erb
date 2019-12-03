@@ -1,28 +1,34 @@
-<div class="container" id="searchcontainer">
-  <h2>Search for the Name or Location</h2>
-
-
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: " 🔍 Search"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-
-
-    <div class="results">
-      <% @places.each do |place| %>
-      <div class="result">
-        <div>
-         <%= link_to place.name, place_path(place.id) %>
-         <%= link_to place.city, place_path(place.id), class: "city" %>
-        </div>
-     <br>
-      <img src="<%= place.photo %>" alt="Italian Trulli" width="100" height="80">
-      <br>
-      </div>
+<!-- <div class="container" id="searchcontainer"> -->
+  <%= form_tag search_path, method: :get  do %>
+    <div id = "search-data" class="form-search  search-data d-flex justify-content-between mt-4" data-places ="<%= [].to_json%>">
+      <%= text_field_tag :query,
+        params[:query],
+        autocomplete: :off,
+        class: "form-control search-input",
+        placeholder: "🔍 Search"
+      %>
+      <%= submit_tag "Search", class: "btn btn-success" do %>
+        <i class="fas fa-play"></i>
       <% end %>
     </div>
-</div>
+  <% end %>
+
+  <div class="results">
+    <ul class="list-group list-group-flush">
+      <% @places.each do |place| %>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+            <%= link_to place.name, place_path(place.id) %><br>
+            <i class="fas fa-map-marker-alt"></i>  <%= link_to place.address, place_path(place.id), class: "city" %>
+            </div>
+            <div>
+            <%= cl_image_tag place.photo, class: "img-result" %>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+  </div>
+<!-- </div> -->
+

@@ -3,20 +3,45 @@
     <h2 class="text-center"><%= @experience.name %></h2>
     <hr>
     <div class="container">
-      <h5>About the experience...</h5>
-      <p><%= @experience.description %></p>
+      <h5 class = "descTitle">About the experience...</h5>
+      <p class = "reviewDesc"><%= @experience.description %></p>
     </div>
-    <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-success'} do %>
-      <i class="fas fa-plus mr-1"></i>Book Me!
-    <% end %>
 
+    <div class = "bookme justify-content-between">
+      <%= link_to new_booking_path, {'data-toggle' =>  "modal", 'data-target' => "#bookingModalCenter-#{@experience.id}", class: 'btn btn-success'} do %>
+        <i class="fas fa-plus"></i>Book Me!
+      <% end %>
+
+      <%= link_to place_path(@experience.place_id), class: 'btn btn-warning' do %>
+        Visit the Cafe
+      <% end %>
+    </div>
+
+
+
+      <strong><h4 class= "reviewTitle">Reviews</h4></strong>
+
+      <div class="list-group">
+        <% @experience.reviews.each do |review| %>
+          <a href="#" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Rating: <% review.rating.times do %>
+                <i class="fas fa-coffee"></i>
+                <% end %></h5>
+              <small><%= time_ago_in_words(review.created_at) %></small>
+            </div>
+            <p class="mb-1"><%= review.content %></p>
+          </a>
+        <% end %>
+      </div>
+      <!--
     <div class="container">
       <ul>
         <% @experience.reviews.each do |review| %>
-          <li><%= review.content %></li>
+          <li> <strong><%= review.content %> - <%= review.rating %>/5 </strong>  </li>
         <% end %>
       </ul>
-    </div>
+    </div> -->
   </div>
 </div>
 

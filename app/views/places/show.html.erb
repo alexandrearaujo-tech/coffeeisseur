@@ -1,9 +1,11 @@
-<%= cl_image_tag @place.photo, class: "img-fluid" %>
+<%= cl_image_tag @place.photo, class: "card-img-top" %>
+<div class = "placeText">
+
 <h3><%= @place.name %></h3>
 <p><%= @place.street %>, <%= @place.city %></p>
 
 <h4>Experiences</h4>
-
+</div>
 
 <div class="scrolling-wrapper-flexbox">
   <% @experiences.each do |experience| %>
@@ -24,19 +26,20 @@
   <% end %>
 </div>
 
+<div class ="reviewList">
+  <h4>Reviews</h4>
 
-<h4>Reviews</h4>
-
-<div class="list-group">
-  <% @place.reviews.each do |review| %>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Rating: <% review.rating.times do %>
-          <i class="fas fa-coffee"></i>
-          <% end %></h5>
-        <small><%= time_ago_in_words(review.created_at) %></small>
-      </div>
-      <p class="mb-1"><%= review.content %></p>
-    </a>
-  <% end %>
+  <div class="list-group">
+    <% @place.reviews.each do |review| %>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Rating: <% review.rating.times do %>
+            <i class="fas fa-coffee"></i>
+            <% end %></h5>
+          <small><%= time_ago_in_words(review.created_at) %></small>
+        </div>
+        <p class="mb-1"><%= review.content %></p>
+      </a>
+    <% end %>
+  </div>
 </div>

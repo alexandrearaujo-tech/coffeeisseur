@@ -8,15 +8,45 @@
 
 require 'faker'
 
-puts "Deleting previous all previous attributes..."
+puts "Deleting all previous attributes..."
 
-User.destroy_all
-Booking.destroy_all
 Review.destroy_all
+Booking.destroy_all
+Compliment.destroy_all
 Experience.destroy_all
 Place.destroy_all
 Category.destroy_all
-Card.destroy_all
+User.destroy_all
+
+
+puts "Creating Categories"
+categories_id = []
+category = Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
+categories_id << category.id
+
+category = Category.create!(name: "Competitions", icon: "fas fa-award")
+categories_id << category.id
+
+category = Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
+categories_id << category.id
+
+category = Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
+categories_id << category.id
+
+category = Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
+categories_id << category.id
+
+category = Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
+categories_id << category.id
+
+category = Category.create!(name: "Mystery", icon: "fas fa-gift")
+categories_id << category.id
+
+# Card.destroy_all
+# Interest.destroy_all
+# UserExperience.destroy_all
+# UserPlace.destroy_all
+# UserInterest.destroy_all
 
 remote_photo_url_place = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863463/yhldnrjutaxsyfrdilqi.jpg",
@@ -34,87 +64,167 @@ remote_photo_url_experience = [
   "https://res.cloudinary.com/coffeeisseur/image/upload/v1574863569/ldjlcns9nqcyuei5obz4.jpg",
 ]
 
-puts "Creating Users"
+reviews_content = [
+  "Great place for someone who doesnt bother to show off. Its purely “Copenhagen” style, with fresh baked food, flavored dishes and excellent coffee. We are in Lisbon already three days and this is our third time visiting the place. Good coffee to take away as well. Friendly staff and thanks god they do speak English.",
+  "Nice ambience. Chocolate bun is not so good. Is better to try the cardamomo bread option. Quiet place to work or just to enjoy a Coffee",
+  "Decor was hip. First three coffees we tried to order from their menu they said they didn't have (V60, Aeropress, & cold brew) . Didn't have cream either. Only milk. Service was a little slow, but friendly. Food was OK. I got the avocado …",
+  "Very good Cappuccino, the best! We came twice to have breakfast, they have good toast with cheese and avocado. Good and fast service. Very nice and simple place.",
+  "I absolutely loved the Mill! I went see several times during my visit to Lisboa. Staff is extremely friendly and helpful. Knowledgeable about the food and coffee. Staff is relaxed and look like they enjoy their jobs vs being stressed out. …"
+]
 
+places = [
+  {
+    name: "Benjamin Coffee House",
+    street: "Rua do Possolo 52",
+    city: "Lisbon"
+  },
+  {
+    name: "Comoba",
+    street: "Rua de S. Paulo 99",
+    city: "Lisbon"
+  },
+  {
+    name: "Cafe de Finca",
+    street: "Rua Luís de Camões 112 A",
+    city: "Lisbon"
+  },
+  {
+    name: "Copenhagen Coffee Lab (& Bakery)",
+    street: "Campo de Santa Clara 136",
+    city: "Lisbon"
+  },
+  {
+    name: "Lovers Coffee",
+    street: "Rua Nova da Piedade 10",
+    city: "Lisbon"
+  },
+  {
+    name: "Cafe Fantasia",
+    street: "Escolas Gerais 34E",
+    city: "Lisbon"
+  },
+  {
+    name: "Coffee Best",
+    street: "Rua Prior do Crato 1A",
+    city: "Lisbon"
+  },
+  {
+    name: "Cafe Enamorado",
+    street: "Escolas Gerais 34",
+    city: "Lisbon"
+  },
+  {
+    name: "Lee's Cafe",
+    street: "Rua Filinto Elisio 21",
+    city: "Lisbon"
+  },
+  {
+    name: "Costa de Cafe",
+    street: "Avenida da Liberdade 13",
+    city: "Lisbon"
+  }
+]
+
+experiencies = [
+  {name: "LisBOA ROA-sting!", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Coffee Country", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Meet Over a Cup", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Taste of Finca", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Group Drink Meetup", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Nao Caoffe", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Ethiopia Tasting", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Bean Me Up!", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+  {name: "Naked Coffee!", description: "A team of enthusiastic coffee professionals are ready to give recommendations and encourage you to enjoy your drink on the patio."},
+  {name: "Now THIS is coffee", description: "Take a coffee to go and watch people pass by in leafy Praça das Flores, or explore the high-end shopping and restaurants of Principe Real. The Portuguese parliament building, Assembleia da República, is also close by."},
+]
+
+
+puts "Creating Users"
+users_id = []
 5.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
     password: '123456')
+  users_id << user.id
 end
 
-# Creating Categories
-puts "Creating Categories"
+puts "Creating Places"
+places_id = []
+10.times do
+  place = Place.create!(
+    name: places[rand(0..9)][:name],
+    street: places[rand(0..9)][:street],
+    average_rating: rand(1..5),
+    city: places[rand(0..9)][:city],
+    remote_photo_url: remote_photo_url_place[rand(0..4)]
+  )
+  experience = Experience.create!(
+    name: experiencies[rand(0..9)][:name],
+    category_id: categories_id[rand(0..6)],
+    description: experiencies[rand(0..9)][:description],
+    average_rating: rand(1..5),
+    remote_photo_url: remote_photo_url_experience[rand(0..4)],
+    place: place
+  )
+  places_id << place.id
+end
 
 
-Category.create!(name: "Workshops", icon: "fas fa-chalkboard-teacher")
-Category.create!(name: "Competitions", icon: "fas fa-award")
-Category.create!(name: "Tasting", icon: "fas fa-mug-hot")
-Category.create!(name: "New Beans", icon: "fas fa-bullhorn")
-Category.create!(name: "Coffee Talks", icon: "fas fa-handshake")
-Category.create!(name: "Festivals", icon: "fas fa-calendar-alt")
-Category.create!(name: "Mystery", icon: "fas fa-gift")
-
-  # Category.create!(name: "roasting")
-  # Category.create!(name: "meetup")
 puts "Creating Compliment"
-
 Compliment.create!(name: "Food")
 Compliment.create!(name: "Space")
 Compliment.create!(name: "Coffee")
 Compliment.create!(name: "Staff")
+Compliment.create!(name: "Customers")
 
-puts "Creating Places & Experiences"
 
-#create Places with real addressess
-place1 = Place.create!(name: "Benjamin Coffee House",street: "Rua do Possolo 52", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-experience1 = Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"Mystery"), description: 'A Special Description!', remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place1)
-experience2 = Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place1)
-booking1 = Booking.create!(date: Time.now.to_datetime, user: User.first, experience: experience1)
-booking2 = Booking.create!(date: Time.now.to_datetime, user: User.last, experience: experience2)
-
-puts "Creating Review"
-
-10.times do
-  Review.create!(content: "this is an amazing coffee", rating: rand(1..5), booking: Booking.all.sample, compliment: Compliment.all.sample)
+puts "Create Booking"
+bookings_id = []
+20.times do
+  booking = Booking.create!(
+    date: DateTime.new,
+    user_id: users_id[rand(0..4)],
+    experience: Experience.all.sample
+  )
+  bookings_id << booking.id
 end
 
-
-place2 = Place.create!(name: "COMOBA", street: "Rua de S. Paulo 99", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "LisBOA ROA-sting!", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place2)
-  Experience.create!(name: "Coffee Country", category: Category.find_by(name:"Festivals"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place2)
-
-place3 = Place.create!(name: "Cafe de Finca", street: "Rua Luís de Camões 112 A", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Meet Over a Cup", category: Category.find_by(name:"Tasting"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place3)
-  Experience.create!(name: "Taste of Finca", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place3)
-
-place4 = Place.create!(name: "Copenhagen Coffee Lab (& Bakery)", street: "Campo de Santa Clara 136", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Group Drink Meetup", category: Category.find_by(name:"Tasting"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place4)
-  Experience.create!(name: "Nao Caoffe", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place4)
-
-place5 = Place.create!(name: "Lovers Coffee", street: "Rua Nova da Piedade 10", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Now THIS is coffee", category: Category.find_by(name:"Competitions"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place5)
-  Experience.create!(name: "Coffee Lovers Group", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place5)
-
-place6 = Place.create!(name: "Cafe Fantasia", street: "Escolas Gerais 34E", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Mystic Beans", category: Category.find_by(name:"Workshops"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place6)
-  Experience.create!(name: "Ethiopia Tasting", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place6)
-
-place7 = Place.create!(name: "Coffee Best", street: "Rua Prior do Crato 1A", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Coffee on the Moon!", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place7)
-  Experience.create!(name: "Bean Me Up!", category: Category.find_by(name:"Tasting"), remote_photo_url: remote_photo_url_experience[rand(0..4)], description: "A Special Description!", place: place7)
-
-place8 = Place.create!(name: "Cafe Enamorado", street: "Escolas Gerais 34", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"Workshops"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place8)
-  Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place8)
-
-place9 = Place.create!(name: "Lee's Cafe", street: "Rua Filinto Elisio 21", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"Competitions"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place9)
-  Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place9)
-
-place10 = Place.create!(name: "Costa de Cafe", street: "Avenida da Liberdade 13", city: "Lisbon", photo: "", remote_photo_url: remote_photo_url_place[rand(0..4)], average_rating: "")
-  Experience.create!(name: "Roasting with the Masters", category: Category.find_by(name:"Mystery"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place10)
-  Experience.create!(name: "Naked Coffee!", category: Category.find_by(name:"Festivals"), description: "A Special Description!", remote_photo_url: remote_photo_url_experience[rand(0..4)], place: place10)
+puts "Creating Review"
+20.times do
+  Review.create!(
+    content: reviews_content[rand(0..4)],
+    rating: rand(1..5),
+    booking_id: bookings_id.sample,
+    compliment: Compliment.all.sample
+  )
+end
 
 puts 'Done :)'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
