@@ -39,6 +39,12 @@ class CardsController < ApplicationController
 
   end
 
+  def generate
+    respond_to do |format|
+      format.svg { render inline: svg }
+    end
+  end
+
   def destroy
   end
 

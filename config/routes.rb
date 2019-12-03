@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   get "/search" => 'pages#search'
 
   get "/redeem/:id" => 'cards#update'
+
+  get "qrcode/generate" => "cards#generate", format: :svg
 end

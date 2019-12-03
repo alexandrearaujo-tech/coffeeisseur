@@ -9,8 +9,7 @@
       <% @card.stamp_count.times do %>
         <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
       <% end %>
-      <%= inline_svg_tag @svg, class: 'some-class' %>
-
+      <%= render inline: @svg %>
     </div>
   </div>
 </div>
