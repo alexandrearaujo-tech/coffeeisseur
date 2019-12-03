@@ -29,7 +29,6 @@ class Place < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-
   def self.find_by_name(name)
     Place.where('name ILIKE ?', "%#{name}%")
   end

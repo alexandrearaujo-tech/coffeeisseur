@@ -6,7 +6,7 @@ import { initMapbox } from '../plugins/init_mapbox.js';
 import { autocompleteSearch } from '../components/autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
-if (document.body.classList.contains("pages-search")){
+if (document.body.classList.contains("pages-map")){
   autocompleteSearch();
 }
 

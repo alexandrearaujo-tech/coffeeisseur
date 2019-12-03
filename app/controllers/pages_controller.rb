@@ -8,16 +8,9 @@ class PagesController < ApplicationController
   end
 
   def map
-    @places = Place.geocoded #returns flats with coordinates
-
-      @markers = @places.map do |place|
-        {
-          lat: place.latitude,
-          lng: place.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
-          image_url: helpers.asset_url('logo.png')
-        }
-      end
+    #@places = Place.all
+    #@places = Place.geocoded #returns flats with coordinates
+    #@markers = [] # @places.map(&:to_marker)
   end
 
   def search
@@ -33,8 +26,6 @@ class PagesController < ApplicationController
 
   def autocomplete
     authorize User
-    results = AutocompleteSearchService.new(params[:query]).call
-
-    render json: results
+    @places = Place.global_search(params[:query])
   end
 end
