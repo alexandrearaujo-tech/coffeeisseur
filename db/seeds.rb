@@ -190,9 +190,12 @@ puts "Creating Bookings & Reviews"
 bookings_id = []
 reviews_id = []
 i = 0
-10.times do
+
+# Past Booking with reviews
+
+5.times do
   booking = Booking.create!(
-    date: DateTime.new,
+    date: DateTime.new(2019,12,1),
     user_id: users_id[rand(0..1)],
     experience: Experience.find(experiences_id[i])
   )
@@ -207,6 +210,28 @@ i = 0
   end
   i += 1
 end
+
+# Past Booking without reviews
+
+2.times do
+  booking = Booking.create!(
+    date: DateTime.new(2019,11,29),
+    user_id: users_id[0],
+    experience: Experience.find(experiences_id[i])
+  )
+  i += 1
+end
+
+# Future Booking
+3.times do
+  booking = Booking.create!(
+    date: DateTime.new(2019,12,11),
+    user_id: users_id[rand(0..1)],
+    experience: Experience.find(experiences_id[i])
+  )
+  i += 1
+end
+
 
 puts "Creating Cards"
 cards_id = []
@@ -226,6 +251,7 @@ end
     place_id: places_id[rand(0..9)]
   )
 end
+
 
 puts 'Done :)'
 
