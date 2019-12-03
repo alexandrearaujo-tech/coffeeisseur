@@ -2,6 +2,7 @@ require 'faker'
 
 puts "Deleting all previous attributes..."
 
+Card.destroy_all
 Review.destroy_all
 Booking.destroy_all
 Compliment.destroy_all
@@ -9,7 +10,6 @@ Experience.destroy_all
 Place.destroy_all
 Category.destroy_all
 User.destroy_all
-Card.destroy_all
 # Interest.destroy_all
 # UserExperience.destroy_all
 # UserPlace.destroy_all
@@ -80,7 +80,7 @@ places = [
   },
   {
     name: "Comoba",
-    street: "Rua de S. Paulo 99",
+    street: "Rua de São Paulo 99",
     city: "Lisbon"
   },
   {
