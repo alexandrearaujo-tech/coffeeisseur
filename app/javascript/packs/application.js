@@ -26,6 +26,7 @@ $(document).ready(function(){
 // date picker
 
 const datePickers = document.querySelectorAll('.flatpickr-input')
+// const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset)
 
 datePickers.forEach(element => {
   flatpickr(element, {
@@ -34,6 +35,7 @@ datePickers.forEach(element => {
     altFormat: "F j, Y",
     dateFormat: "Y-m-d",
     minDate: "today",
+    enable: ["2019-12-28", "2019-12-10", "2019-12-08", "2019-12-13", "2019-12-06" ]
   });
 });
 

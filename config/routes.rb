@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   get "/fetch_experiences" => 'experiences#from_category', as: 'fetch_experiences'
 
   get "/search" => 'pages#search'
+
+  get "/redeem/:id" => 'cards#update'
+
+  # Route to generate the QR code
+  get "qrcode/generate" => "cards#generate", format: :svg
 end

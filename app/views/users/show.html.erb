@@ -22,7 +22,7 @@
       <%= render partial: 'user_favs', locals: { places: @user.user_places, experiences: @user.user_experiences} %>
     </div>
 
-    <div id="bookings" class="menus" style="display:block;">
+    <div id="bookings" class="menus pb-3 mb-3" style="display:block;">
       <%= render partial: 'user_bookings', locals: { bookings: @user.bookings} %>
     </div>
 
@@ -31,10 +31,7 @@
     </div>
 
     <div id="profile" class="menus" style="display:none">
-      <%= render partial: 'user_profile' %>
-      <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-danger' do %>
-        <i></i> Log Out Now!
-      <% end %>
+      <%= render partial: 'user_profile', method: :patch, locals: { users: @user} %>
     </div>
 
   </div>

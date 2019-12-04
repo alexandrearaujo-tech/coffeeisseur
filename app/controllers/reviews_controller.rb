@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if @review.save
       experience_avg
       card_stamp
-      redirect_to experience_path(@experience)
+      redirect_to user_path(current_user)
     else
       render :new
     end
