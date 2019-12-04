@@ -3,7 +3,6 @@
 
   <div class="scrolling-wrapper-flexbox">
     <% @cards.where(state: 1).each do |card| %>
-    <div class="icon-cards__item">
         <div class="card ml-0" style="width: 17rem;">
           <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
           <div class="card-body">
@@ -19,7 +18,6 @@
             <% end %>
           </div>
         </div>
-    </div>
     <% end %>
   </div>
 

@@ -7,10 +7,6 @@ import { autocompleteSearch } from '../components/autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
 
-
-
-
-
 if (document.body.classList.contains("pages-map")){
   autocompleteSearch();
 }
@@ -31,7 +27,6 @@ $(document).ready(function(){
 // date picker
 
 const datePickers = document.querySelectorAll('.flatpickr-input')
-// const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset)
 
 datePickers.forEach(element => {
   flatpickr(element, {
@@ -50,12 +45,10 @@ datePickers.forEach(element => {
 $(function() {
   $('.toggle-btn').click(function() {
     $('.filter-btn').toggleClass('open');
-
   });
 
   $('.filter-btn a').click(function() {
     $('.filter-btn').removeClass('open');
-
   });
 
 });
@@ -68,7 +61,6 @@ if (document.body.classList.contains("users-show")) {
   document.getElementById("three").addEventListener ("click", displayCards);
   document.getElementById("all").addEventListener ("click", displayProfile);
 }
-
 
 
 function displayFavs() {
@@ -111,7 +103,6 @@ function displayProfile() {
 
 
 
-// loadDynamicBannerText();
 
 
 
