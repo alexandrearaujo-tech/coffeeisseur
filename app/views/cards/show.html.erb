@@ -1,6 +1,11 @@
-<h1>Card: #<%= @card.id %> <%= @places.find(@card.place_id).name %></h1>
-
-<% @card.stamp_count.times do %>
-  <i class="fas fa-coffee"></i>
-<% end %></h5>
-
+<div class="d-flex justify-content-center">
+  <div class="card text-center" style="width: 18rem;">
+    <%= cl_image_tag @places.find(@card.place_id).photo, class: "card-img-top" %>
+    <div class="card-body">
+      <h3 class="mb-1"><%= @places.find(@card.place_id).name %></h3>
+      <p class="card-text">Show the code to redeem the gift</p>
+       <%= render inline: @svg %>
+      <br><br>
+    </div>
+  </div>
+</div>

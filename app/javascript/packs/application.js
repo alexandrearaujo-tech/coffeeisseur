@@ -6,6 +6,7 @@ import { initMapbox } from '../plugins/init_mapbox.js';
 import { autocompleteSearch } from '../components/autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
+
 if (document.body.classList.contains("pages-map")){
   autocompleteSearch();
 }
@@ -34,6 +35,7 @@ datePickers.forEach(element => {
     altFormat: "F j, Y",
     dateFormat: "Y-m-d",
     minDate: "today",
+    enable: ["2019-12-28", "2019-12-10", "2019-12-08", "2019-12-13", "2019-12-06" ]
   });
 });
 
@@ -43,12 +45,10 @@ datePickers.forEach(element => {
 $(function() {
   $('.toggle-btn').click(function() {
     $('.filter-btn').toggleClass('open');
-
   });
 
   $('.filter-btn a').click(function() {
     $('.filter-btn').removeClass('open');
-
   });
 
 });
@@ -61,7 +61,6 @@ if (document.body.classList.contains("users-show")) {
   document.getElementById("three").addEventListener ("click", displayCards);
   document.getElementById("all").addEventListener ("click", displayProfile);
 }
-
 
 
 function displayFavs() {
@@ -104,7 +103,6 @@ function displayProfile() {
 
 
 
-// loadDynamicBannerText();
 
 
 

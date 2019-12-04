@@ -1,71 +1,19 @@
-html {
-  background-size: cover;
-}
-
-*,
-:after,
-:before {
-  box-sizing: border-box
-}
-
-.clearfix:after,
-.clearfix:before {
-  content: '';
-  display: table
-}
-
-.clearfix:after {
-  clear: both;
-  display: block
-}
-
-.overlay {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1498721409281-998093cc905b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.overlay:after {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
 
 .top {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
   position: relative;
+  background-size: 450px;
+  background-position: center;
   min-height: 240px;
   padding: 15px;
   color: #fff;
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.7);
 }
 
-.top .nav span {
-  float: left;
-  display: block;
-}
-
-.nav p {
-  margin-top: 2px;
-  display: inline-block;
-  float: left;
-  vertical-align: bottom;
-}
 
 .ion-android-menu {
   font-size: 24px;
   margin-right: 17px;
-}
-
-.nav .ion-ios-more-outline {
-  font-size: 38px;
-  float: right !important;
 }
 
 .user-profile {
@@ -80,18 +28,10 @@ html {
   margin-right: 24px;
 }
 
-.user-details p {
-  font-size: 11px;
-}
-
 .user-details {
   float: left;
   margin-top: 5px;
   vertical-align: bottom;
-}
-
-.user-details h4 {
-  font-size: 18px;
 }
 
 .filter-btn {
@@ -187,7 +127,6 @@ span.toggle-btn.ion-android-funnel:hover{
   position: relative;
   color: #222;
   padding-top: 0px;
-  opacity: 0.9;
   height: 500px;
 }
 
@@ -200,7 +139,6 @@ span.toggle-btn.ion-android-funnel:hover{
   right: 0;
   height: 88px;
   transform: rotate(10deg);
-  width: 467px;
   z-index: -1;
 }
 
@@ -220,77 +158,31 @@ span.toggle-btn.ion-android-funnel:hover{
   letter-spacing: 1px;
 }
 
-ul.tasks .task-title {
-  font-size: 13px;
-  display: inline-block;
-}
-
-ul.tasks .task-time {
-  float: right;
-  font-size: 10px;
-  color: #888;
-}
-
-ul.tasks .task-cat {
-  font-size: 10px;
-  display: block;
-  color: #888;
-}
-
-ul.tasks li {
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 8;
-}
-
-ul.tasks li:after {
-  content: '';
-  position: absolute;
-  left: -18px;
-  top: 8px;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-}
-
-ul.tasks li.red:after {
-  background: #FF3163;
-}
-
-ul.tasks li.green:after {
-  background: #54D6C7;
-}
-
-ul.tasks li.yellow:after {
-  background: #EAB429;
-}
-
-ul.tasks::after {
-  content: '';
-  position: absolute;
-  height: 400px;
-  width: 1px;
-  background: #eee;
-  left: 20px;
-  top: -68px;
-}
-
-ul li.hang {
-  margin-bottom: 48px;
-}
-
-ul li.hang img {
-  float: left;
-  height: 20ox;
-  width: 20px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
 
 #profile{
-      .btn{
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          }
+  .btn-danger{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
 }
+
+
+.day-num {
+  font-size: 22px;
+  color: $mygreen;
+  font-weight: bolder;
+  opacity: 0.7;
+}
+
+.month {
+  color: $mydarkgreen;
+  font-weight: bold;
+}
+
+.day {
+  color: $mydarkgreen;
+}
+
+
+
