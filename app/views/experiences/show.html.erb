@@ -23,6 +23,31 @@
     <% end %>
   </div>
 
+    <h6 class="pt-2 mt-3 mb-0">This place is known by</h6>
+  <div class="d-flex justify-content-center">
+    <ul class="list-group list-group-vertical">
+      <% @compliments.each do |compliment| %>
+        <li class="list-group-item">
+          <% case compliment[0].name %>
+          <% when 'Food' %>
+            <i class="fas fa-utensils"></i>
+          <% when 'Space' %>
+            <i class="fas fa-couch"></i>
+          <% when 'Coffee' %>
+            <i class="fas fa-mug-hot"></i>
+          <% when 'Staff' %>
+            <i class="far fa-user"></i>
+          <% when 'Customers' %>
+            <i class="fas fa-user-friends"></i>
+          <% else %>
+          <% end %>
+          <%= compliment[0].name %>
+          (<%= compliment[1] %>)
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
   <!-- Reviews -->
   <h6 class="pt-2 mt-3 mb-0">Popular Reviews</h6>
   <small class="text-muted my-0"><%= @experience.reviews.count %> reviews</small>
@@ -39,6 +64,26 @@
               </h5>
               <small><%= time_ago_in_words(review.created_at) %></small>
             </div>
+            <!-- compliments begin -->
+            <div class="d-flex justify-content-right">
+                <h5>Compliment: <br>
+                <% case review.compliment.name %>
+                <% when 'Food' %>
+                  <i class="fas fa-utensils"></i>
+                <% when 'Space' %>
+                  <i class="fas fa-couch"></i>
+                <% when 'Coffee' %>
+                  <i class="fas fa-mug-hot"></i>
+                <% when 'Staff' %>
+                  <i class="far fa-user"></i>
+                <% when 'Customers' %>
+                  <i class="fas fa-user-friends"></i>
+                <% else %>
+                <% end %>
+                  <%= review.compliment.name %>
+              </h5>
+            </div>
+            <!-- compliments end -->
             <div id="card-collapse" class="collapse-content">
               <p class="card-text collapse" id="collapseContent"><%= review.content %></p>
               <a class="p-1 my-1 mr-0 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>

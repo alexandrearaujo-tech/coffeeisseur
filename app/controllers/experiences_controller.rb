@@ -14,10 +14,12 @@ class ExperiencesController < ApplicationController
   def show
     authorize @experience
     @booking = Booking.new
+
     @user_experiences = UserExperience.where(experience_id: @experience.id)
+
+    @compliments = @experience.reviews.all.group(:compliment).count
+
   end
-
-
 
   private
 
