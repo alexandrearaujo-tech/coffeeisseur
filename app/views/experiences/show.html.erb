@@ -20,41 +20,23 @@
   <div class="d-flex justify-content-center">
     <ul class="list-group list-group-vertical">
       <% @compliments.each do |compliment| %>
-        <% case compliment[0].name %>
-        <% when 'Food' %>
-          <li class="list-group-item">
+        <li class="list-group-item">
+          <% case compliment[0].name %>
+          <% when 'Food' %>
             <i class="fas fa-utensils"></i>
-            <%= compliment[0].name %>
-            (<%= compliment[1] %>)
-          </li>
-        <% when 'Space' %>
-          <li class="list-group-item">
+          <% when 'Space' %>
             <i class="fas fa-couch"></i>
-            <%= compliment[0].name %>
-            (<%= compliment[1] %>)
-          </li>
-        <% when 'Coffee' %>
-          <li class="list-group-item">
+          <% when 'Coffee' %>
             <i class="fas fa-mug-hot"></i>
-            <%= compliment[0].name %>
-            (<%= compliment[1] %>)
-          </li>
-        <% when 'Staff' %>
-          <li class="list-group-item">
+          <% when 'Staff' %>
             <i class="far fa-user"></i>
-            <%= compliment[0].name %>
-            (<%= compliment[1] %>)
-          </li>
-        <% when 'Customers' %>
-          <li class="list-group-item">
+          <% when 'Customers' %>
             <i class="fas fa-user-friends"></i>
-            <%= compliment[0].name %>
-            (<%= compliment[1] %>)
-          </li>
-        <% else %>
+          <% else %>
+          <% end %>
           <%= compliment[0].name %>
           (<%= compliment[1] %>)
-        <% end %>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -77,37 +59,22 @@
             </div>
             <!-- compliments begin -->
             <div class="d-flex justify-content-right">
-               <ul class="list-group list-group-horizontal">
+                <h5>Compliment: <br>
                 <% case review.compliment.name %>
                 <% when 'Food' %>
-                  <li class="list-group-item">
-                    <i class="fas fa-utensils"></i>
-                    <%= review.compliment.name %>
-                  </li>
+                  <i class="fas fa-utensils"></i>
                 <% when 'Space' %>
-                  <li class="list-group-item">
-                    <i class="fas fa-couch"></i>
-                    <%= review.compliment.name %>
-                  </li>
+                  <i class="fas fa-couch"></i>
                 <% when 'Coffee' %>
-                  <li class="list-group-item">
-                    <i class="fas fa-mug-hot"></i>
-                    <%= review.compliment.name %>
-                  </li>
+                  <i class="fas fa-mug-hot"></i>
                 <% when 'Staff' %>
-                  <li class="list-group-item">
-                    <i class="far fa-user"></i>
-                    <%= review.compliment.name %>
-                  </li>
+                  <i class="far fa-user"></i>
                 <% when 'Customers' %>
-                  <li class="list-group-item">
-                    <i class="fas fa-user-friends"></i>
-                    <%= review.compliment.name %>
-                  </li>
+                  <i class="fas fa-user-friends"></i>
                 <% else %>
-
                 <% end %>
-              </ul>
+                  <%= review.compliment.name %>
+              </h5>
             </div>
             <!-- compliments end -->
             <div id="card-collapse" class="collapse-content">
