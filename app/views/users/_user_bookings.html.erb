@@ -2,11 +2,12 @@
 <h4 class="mt-0 pt-0 text-center">My Bookings</h4>
 
 
-<% bookings_arr = bookings.sort {|a,b| a.date <=> b.date } %>
+<% bookings_arr = bookings.sort {|a,b| b.id <=> a.id } %>
 
 <% bookings_arr.each do |booking| %>
-<!-- <p><%= booking.date.strftime('%d-%b-%y') %></p> -->
-  <div class="card">
+<!-- hide card after review -->
+<% hide_booking = booking.review.nil? ? "block" : "none" %>
+  <div class="card" style="display: <%= hide_booking %>">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
       <div class="border-right pr-2 text-center">
@@ -29,10 +30,9 @@
             </p>
           </div>
       </div>
-        <!-- Disable review button after click / before the booking date -->
-        <% disabled_button = booking.review.nil? ? "" : "disabled" %>
+        <!-- Disable review button before the booking date -->
         <% if DateTime.now > booking.date %>
-          <%= link_to 'Review', new_booking_review_path(booking), class: "d-block btn btn-sm btn-success #{disabled_button}" %>
+          <%= link_to 'Review', new_booking_review_path(booking), class: "d-block btn btn-sm btn-success" %>
         <% else %>
           <%= link_to 'Review', new_booking_review_path(booking), class: 'd-block btn btn-sm btn-success disabled' %>
         <% end %>

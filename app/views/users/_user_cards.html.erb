@@ -1,26 +1,36 @@
 <div class="title">
-  <h4 class="text-center">My Cards</h4>
+  <h4 class="text-center mb-4">My Stamp Cards</h4>
 
-  <div class="scrolling-wrapper-flexbox">
-    <% @cards.where(state: 1).each do |card| %>
-        <div class="card ml-0" style="width: 17rem;">
-          <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
-          <div class="card-body">
-            <h3 class="mb-1"><%= @places.find(card.place_id).name %></h3>
-            <p class="card-text">Your stamps:</p>
-            <% card.stamp_count.times do %>
-              <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
-            <% end %>
-            <% if card.completed? %>
-              <%= link_to card_path(card.id) do %>
-                <button class="btn btn-sm btn-primary">Redeem</button>
+  <% hide_cards = @cards.where(state: 1).empty? ? "none" : "block" %>
+
+  <div style="display: <%= hide_cards %>">
+    <h5>Your free coffee is waiting</h5>
+    <h6>Redeem your card at the cafe</h6>
+    <div class="scrolling-wrapper-flexbox">
+      <% @cards.where(state: 1).each do |card| %>
+          <div class="card ml-0" style="width: 17rem;">
+            <%= cl_image_tag @places.find(card.place_id).photo, class: "card-img-top" %>
+            <div class="card-body">
+              <h3 class="mb-1"><%= @places.find(card.place_id).name %></h3>
+              <p class="card-text">Your stamps:</p>
+              <% card.stamp_count.times do %>
+                <%= image_tag("stamp.jpg", style:"height: 25px; width:auto;") %>
               <% end %>
-            <% end %>
+              <% if card.completed? %>
+                <%= link_to card_path(card.id) do %>
+                  <button class="btn btn-sm btn-primary">Redeem</button>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
+  <hr>
+
+  <h5>Your recent experiences</h5>
+  <h6>You are only a few stamps away from a free coffee</h6>
   <div class="scrolling-wrapper-flexbox mb-5">
     <% @cards.where(state: 0).each do |card| %>
 

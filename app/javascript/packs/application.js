@@ -7,12 +7,14 @@ import { autocompleteSearch } from '../components/autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
 
+
 if (document.body.classList.contains("pages-map")){
   autocompleteSearch();
 }
 
 initStarRating();
 initMapbox();
+
 
 // compliments choice
 
