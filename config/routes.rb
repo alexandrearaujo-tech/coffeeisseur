@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # resources :reviews, except: [:new]
   resources :user_places, only: [:create]
+  resources :user_experiences, only: [:create]
 
   resources :cards
 
