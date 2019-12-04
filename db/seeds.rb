@@ -2,6 +2,8 @@ require 'faker'
 
 puts "Deleting all previous attributes..."
 
+UserExperience.destroy_all
+UserPlace.destroy_all
 Card.destroy_all
 Review.destroy_all
 Booking.destroy_all
@@ -11,8 +13,6 @@ Place.destroy_all
 Category.destroy_all
 User.destroy_all
 # Interest.destroy_all
-# UserExperience.destroy_all
-# UserPlace.destroy_all
 # UserInterest.destroy_all
 
 puts "Creating Categories"
