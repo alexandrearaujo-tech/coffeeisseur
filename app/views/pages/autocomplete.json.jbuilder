@@ -5,5 +5,5 @@ json.array! @places do |marker|
   json.lat marker.latitude
   json.lng marker.longitude
   json.infoWindow render(partial: "places/info_window", locals: { place: marker }, formats: [:html])
-  json.image_url asset_url('logo.png')
+  json.image_url asset_url('logo2.png')
 end

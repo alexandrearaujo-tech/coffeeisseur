@@ -43,7 +43,7 @@ export const showMarkers = (markers) => {
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
       element.style.width = '40px';
-      element.style.height = '51px';
+      element.style.height = '39px';
 
     const addedMarker = new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
