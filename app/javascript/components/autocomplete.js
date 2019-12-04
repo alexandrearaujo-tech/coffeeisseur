@@ -12,6 +12,17 @@ const autocompleteSearch = function() {
   const places = JSON.parse(document.getElementById('search-data').dataset.places)
   const searchInput = document.getElementById('query');
 
+  // On page load show markers!
+  window.onload = (e) => {
+    $.getJSON('/autocomplete.json',
+      { query: searchInput.value },
+      function(data) {
+        //console.log(data)
+        showMarkers(data);
+        return data;
+      })
+  }
+
   if (places && searchInput) {
     new autocomplete({
       selector: searchInput,

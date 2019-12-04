@@ -4,6 +4,7 @@
   <div class="map-info">
     <h5><%= link_to experience.name, experience_path(experience)%></h5>
     <p><%= link_to place.name, experience_path(experience)%></p>
+    <p>Distance : <%= place.distance_to([38.7267027,-9.1448818999]).round(2) %>miles</p>
   <% end %>
   </div>
 </div>
