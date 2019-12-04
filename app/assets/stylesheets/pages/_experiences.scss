@@ -2,6 +2,17 @@ body, html {
   height: 100%;
 }
 
+.comp-bar {
+  p {
+    color: $mydarkgreen;
+    font-size: 14px;
+  }
+  h6 {
+    letter-spacing: 2px;
+  }
+}
+
+
 a {
   text-decoration: none;
   &:hover {

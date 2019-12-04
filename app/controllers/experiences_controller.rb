@@ -18,6 +18,7 @@ class ExperiencesController < ApplicationController
     @user_experiences = UserExperience.where(experience_id: @experience.id)
 
     @compliments = @experience.reviews.all.group(:compliment).count
+    @compliments_sum = @experience.reviews.all.size
 
   end
 

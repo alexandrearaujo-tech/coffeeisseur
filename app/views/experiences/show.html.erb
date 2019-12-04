@@ -23,11 +23,16 @@
     <% end %>
   </div>
 
-    <h6 class="pt-2 mt-3 mb-0">This place is known by</h6>
-  <div class="d-flex justify-content-center">
-    <ul class="list-group list-group-vertical">
+
+
+
+
+
+    <div class="comp-bar mt-3 py-2">
+      <h6>Coffeeisseurs Love</h6>
+
       <% @compliments.each do |compliment| %>
-        <li class="list-group-item">
+        <p>
           <% case compliment[0].name %>
           <% when 'Food' %>
             <i class="fas fa-utensils"></i>
@@ -42,11 +47,13 @@
           <% else %>
           <% end %>
           <%= compliment[0].name %>
-          (<%= compliment[1] %>)
-        </li>
+        </p>
+        <div class="progress my-2">
+          <% comp_precentage = (compliment[1].to_f / @compliments_sum.to_f) * 100 %>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= comp_precentage %>%;" aria-valuenow="<%= comp_precentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       <% end %>
-    </ul>
-  </div>
+    </div>
 
   <!-- Reviews -->
   <h6 class="pt-2 mt-3 mb-0">Popular Reviews</h6>
@@ -65,8 +72,8 @@
               <small><%= time_ago_in_words(review.created_at) %></small>
             </div>
             <!-- compliments begin -->
-            <div class="d-flex justify-content-right">
-                <h5>Compliment: <br>
+            <div class="d-flex justify-content-right my-1">
+                <span class="badge badge-pill badge-success">
                 <% case review.compliment.name %>
                 <% when 'Food' %>
                   <i class="fas fa-utensils"></i>
@@ -81,7 +88,7 @@
                 <% else %>
                 <% end %>
                   <%= review.compliment.name %>
-              </h5>
+              </span>
             </div>
             <!-- compliments end -->
             <div id="card-collapse" class="collapse-content">
