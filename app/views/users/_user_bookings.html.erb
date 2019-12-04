@@ -1,20 +1,23 @@
-<div class="title">
-  <h3>My Bookings</h3>
-</div>
+
+<h4 class="mt-0 pt-0 text-center">My Bookings</h4>
+
 
 <% bookings_arr = bookings.sort {|a,b| a.date <=> b.date } %>
 
 <% bookings_arr.each do |booking| %>
-
+<!-- <p><%= booking.date.strftime('%d-%b-%y') %></p> -->
   <div class="card">
     <div class="card-body">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between align-items-center">
+      <div class="border-right pr-2 text-center">
+        <p class="m-0 day-num"><%= booking.date.strftime('%a') %></p>
+        <p class="m-0 day"><%= booking.date.strftime('%d') %></p>
+        <p class="month"><%= booking.date.strftime('%b') %></p>
+      </div>
+          <p class="text-center"><%= booking.experience.name %></p>
+
           <div>
-            <p><%= booking.experience.name %></p>
-            <p><%= booking.date.strftime('%d-%b-%y') %></p>
-          </div>
-          <div>
-            <p>
+            <p class="m-0">
               <%= link_to edit_booking_path(booking) do %>
                 <i class="fas fa-edit"></i>
               <% end %>

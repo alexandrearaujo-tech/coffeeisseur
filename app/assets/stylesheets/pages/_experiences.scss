@@ -9,12 +9,15 @@ a {
   }
 }
 
-h4.experience {
+h4{
   color: $mydarkgreen;
   letter-spacing: 4px;
-  font-size: 28px;
-  font-weight: 900;
+  .experience{
+    font-size: 28px;
+    font-weight: 900;
+  }
 }
+
 
 h6 {
   color: $mydarkgreen;

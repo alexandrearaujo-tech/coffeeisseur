@@ -25,7 +25,7 @@
         <%= f.input :content, label: "Would you like to share anything else?", placeholder: "Help other coffeeisseurs have better experiences" %>
         <div class="d-flex justify-content-center m-2">
           <%= f.submit class: 'btn btn-primary mx-1' %>
-          <%= link_to 'Cancel', experiences_path, class: 'btn btn-outline-secondary mx-1' %>
+          <%= link_to 'Cancel', user_path(current_user), class: 'btn btn-outline-secondary mx-1' %>
         </div>
 
       <% end %>
