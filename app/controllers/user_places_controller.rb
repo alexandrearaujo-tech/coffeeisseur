@@ -1,5 +1,4 @@
 class UserPlacesController < ApplicationController
-
   def create
     @user_place = UserPlace.new(place_params)
     @user_place.user = current_user

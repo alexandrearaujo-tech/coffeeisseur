@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     authorize @experiences
     @user_places = UserPlace.where(user_id: current_user.id).order('place_id DESC')
     authorize @user_places
+    @user_experiences = UserExperience.where(user_id: current_user.id).order('experience_id DESC')
+    authorize @user_experiences
     @review = Review.new
     authorize @review
 
