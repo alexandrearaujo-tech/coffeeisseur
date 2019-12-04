@@ -14,9 +14,8 @@ class ExperiencesController < ApplicationController
   def show
     authorize @experience
     @booking = Booking.new
+    @compliments = @experience.reviews.all.group(:compliment).count
   end
-
-
 
   private
 
