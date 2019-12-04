@@ -1,6 +1,6 @@
 
 .top {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
   position: relative;
   background-size: 450px;
   background-position: center;
@@ -21,17 +21,20 @@
 }
 
 .user-profile img {
-  height: 45px;
-  width: 45px;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
   float: left;
-  margin-right: 24px;
+  position: absolute;
+  top: 95px;
 }
 
 .user-details {
   float: left;
   margin-top: 5px;
   vertical-align: bottom;
+  position: absolute;
+  left: 85px;
 }
 
 .filter-btn {
