@@ -141,9 +141,9 @@ experiences = [
 puts "Creating Users"
 users_id = []
 user_one = User.create!(
-  first_name: 'Sharon',
-  last_name: 'Moriel',
-  email: 'sharon@gmail.com',
+  first_name: 'Kevrinho',
+  last_name: 'Ricardo',
+  email: 'kevin@gmail.com',
   password: '123456')
   users_id << user_one.id
 user_two = User.create!(
@@ -177,6 +177,8 @@ i = 0
   experiences_id << experience.id
   i += 1
 end
+
+le_wagon = Place.create!(name: "Le Wagon Coding Cafe", street: "Rua do Conde de Redondo 98", city: "Lisbon", average_rating: 5, remote_photo_url: "https://secure.meetupstatic.com/photos/event/b/c/c/7/highres_479868327.jpeg")
 
 puts "Creating Compliment"
 Compliment.create!(name: "Food")
@@ -252,6 +254,7 @@ end
   )
 end
 
+Card.create!(stamp_count: 5, state: 1, user_id: users_id[0], place_id: le_wagon.id)
 
 puts 'Done :)'
 
