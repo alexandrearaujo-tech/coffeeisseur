@@ -69,7 +69,10 @@ reviews_content = [
   "Nice ambience. Chocolate bun is not so good. Is better to try the cardamomo bread option. Quiet place to work or just to enjoy a Coffee",
   "Decor was hip. First three coffees we tried to order from their menu they said they didn't have (V60, Aeropress, & cold brew) . Didn't have cream either. Only milk. Service was a little slow, but friendly. Food was OK. I got the avocado …",
   "Very good Cappuccino, the best! We came twice to have breakfast, they have good toast with cheese and avocado. Good and fast service. Very nice and simple place.",
-  "I absolutely loved the Mill! I went see several times during my visit to Lisboa. Staff is extremely friendly and helpful. Knowledgeable about the food and coffee. Staff is relaxed and look like they enjoy their jobs vs being stressed out. …"
+  "I absolutely loved it! I went see several times during my visit to Lisboa. Staff is extremely friendly and helpful. Knowledgeable about the food and coffee. Staff is relaxed and look like they enjoy their jobs vs being stressed out. …",
+  "Local coffeeshop with great food options and comfortable environment for work and study.",
+  "Excellent coffee, inspiring people!",
+  "Great people and top quality coffee ☕️!"
 ]
 
 places = [
@@ -161,7 +164,7 @@ i = 0
   place = Place.create!(
     name: places[i][:name],
     street: places[i][:street],
-    average_rating: rand(1..5),
+    average_rating: rand(2..5),
     city: places[i][:city],
     remote_photo_url: remote_photo_url_place[i]
   )
@@ -170,7 +173,7 @@ i = 0
     name: experiences[i][:name],
     description: experiences[i][:description],
     category_id: experiences[i][:category_id],
-    average_rating: rand(1..5),
+    average_rating: rand(3..5),
     remote_photo_url: remote_photo_url_experience[i],
     place: place
   )
@@ -179,7 +182,9 @@ i = 0
 end
 
 le_wagon = Place.create!(name: "Le Wagon Coding Cafe", street: "Rua do Conde de Redondo 98", city: "Lisbon", average_rating: 5, remote_photo_url: "https://secure.meetupstatic.com/photos/event/b/c/c/7/highres_479868327.jpeg")
-# coding_experience = Experience.create!(name: "Coding on Caffeine", description: "So, yes, caffeine can actually help you be a better coder. If you are (even a bit) into coding come join us for this caffeinated coding sesh", category_id: categories_id[0], average_rating: 5, remote_photo_url: "https://lavca.org/wp-content/uploads/2017/08/Likeu-Colombia.jpg" , place: le_wagon )
+coding_experience = Experience.create!(name: "Coding on Caffeine", description: "So, yes, caffeine can actually help you be a better coder. If you are (even a bit) into coding come join us for this caffeinated coding sesh", category_id: categories_id[0], average_rating: 5, remote_photo_url: "https://lavca.org/wp-content/uploads/2017/08/Likeu-Colombia.jpg" , place: le_wagon )
+le_wagon_booking = Booking.create!(date: DateTime.new(2019,12,1), user_id: users_id[0],experience: coding_experience)
+
 
 puts "Creating Compliment"
 Compliment.create!(name: "Food")
@@ -202,10 +207,10 @@ i = 0
     user_id: users_id[rand(0..1)],
     experience: Experience.find(experiences_id[i])
   )
-  4.times do
+  5.times do
     review = Review.create!(
       content: reviews_content[rand(0..4)],
-      rating: rand(1..5),
+      rating: rand(3..5),
       booking_id: booking.id,
       compliment: Compliment.all.sample
     )
