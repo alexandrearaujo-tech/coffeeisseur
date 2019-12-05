@@ -179,6 +179,7 @@ i = 0
 end
 
 le_wagon = Place.create!(name: "Le Wagon Coding Cafe", street: "Rua do Conde de Redondo 98", city: "Lisbon", average_rating: 5, remote_photo_url: "https://secure.meetupstatic.com/photos/event/b/c/c/7/highres_479868327.jpeg")
+# coding_experience = Experience.create!(name: "Coding on Caffeine", description: "So, yes, caffeine can actually help you be a better coder. If you are (even a bit) into coding come join us for this caffeinated coding sesh", category_id: categories_id[0], average_rating: 5, remote_photo_url: "https://lavca.org/wp-content/uploads/2017/08/Likeu-Colombia.jpg" , place: le_wagon )
 
 puts "Creating Compliment"
 Compliment.create!(name: "Food")
