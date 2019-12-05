@@ -6,6 +6,9 @@ import { initMapbox } from '../plugins/init_mapbox.js';
 import { autocompleteSearch } from '../components/autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 
+ScrollReveal().reveal('#card-slider', { delay: 700, origin: 'right', distance: '10%' });
+ScrollReveal().reveal('.comp-bar', { delay: 500 });
+// ScrollReveal().reveal('.scrolling-wrapper-flexbox', { delay: 500 });
 
 
 if (document.body.classList.contains("pages-map")){
