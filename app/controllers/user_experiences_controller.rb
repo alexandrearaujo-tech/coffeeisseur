@@ -7,7 +7,6 @@ class UserExperiencesController < ApplicationController
     authorize @user_experience
 
     if @user_experience.save
-      flash[:notice] = "Saved as favorite!"
       redirect_to experience_path(@experience)
     else
       render :new
