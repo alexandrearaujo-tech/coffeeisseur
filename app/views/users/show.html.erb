@@ -1,6 +1,10 @@
   <div class="top">
     <div class="user-profile">
-      <img src="https://kitt.lewagon.com/placeholder/users/papillard">
+      <% if @user.photo.nil? %>
+        <img src="https://kitt.lewagon.com/placeholder/users/papillard">
+      <% else %>
+        <%= cl_image_tag(@user.photo) %>
+      <% end %>
       <div class="user-details">
         <h3>Hi <%= @user.first_name %>!</h3>
       </div>
