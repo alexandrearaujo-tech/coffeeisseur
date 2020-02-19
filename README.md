@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Project created during the Le Wagon Bootcamp.
+
+Live version of the app could be found here: http://coffeeisseur.alexandrearaujo.tech
